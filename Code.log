@@ -1,0 +1,1745 @@
+
+[Done] exited with code=1 in 24.614 seconds
+
+[Running] python -u "d:\program\VC\project\math\tr\q3.py"
+Drone velocity vector: [-120.    0.    0.]
+Drop position: [17620.     0.  1800.]
+Blast position: [17188.        0.     1736.496]
+Missile velocity vector: [-298.51115706    0.          -29.85111571]
+Missile start position: [20000     0  2000]
+Missile time to decoy target: 67.00 s
+
+=== RESULTS ===
+Smoke drop time: 1.5 s
+Smoke blast time: 5.1 s
+Blast position: (17188.0, 0.0, 1736.5)
+Missile time to decoy target: 67.00 s
+Effective concealment duration: 1.420 s
+
+=== Key timepoint detailed analysis ===
+0s after blast:
+  Missile position: [18477.59309898     0.          1847.7593099 ]
+  Smoke position: [17188.        0.     1736.496]
+  Distance to LOS: 22.46 m
+  Direct distance: 1294.38 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.0��
+  Inside cloud: No
+  Effective concealment: No
+1s after blast:
+  Missile position: [18179.08194192     0.          1817.90819419]
+  Smoke position: [17188.        0.     1733.496]
+  Distance to LOS: 18.23 m
+  Direct distance: 994.67 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.1��
+  Inside cloud: No
+  Effective concealment: No
+2s after blast:
+  Missile position: [17880.57078485     0.          1788.05707849]
+  Smoke position: [17188.        0.     1730.496]
+  Distance to LOS: 13.97 m
+  Direct distance: 694.96 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.2��
+  Inside cloud: No
+  Effective concealment: No
+3s after blast:
+  Missile position: [17582.05962779     0.          1758.20596278]
+  Smoke position: [17188.        0.     1727.496]
+  Distance to LOS: 9.74 m
+  Direct distance: 395.25 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.4��
+  Inside cloud: No
+  Effective concealment: Yes
+4s after blast:
+  Missile position: [17283.54847073     0.          1728.35484707]
+  Smoke position: [17188.        0.     1724.496]
+  Distance to LOS: 5.77 m
+  Direct distance: 95.63 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 3.5��
+  Inside cloud: No
+  Effective concealment: Yes
+5s after blast:
+  Missile position: [16985.03731366     0.          1698.50373137]
+  Smoke position: [17188.        0.     1721.496]
+  Distance to LOS: 3.59 m
+  Direct distance: 204.26 m
+  Smoke between missile and target: No
+  Missile-Smoke-Target angle: 179.0��
+  Inside cloud: No
+  Effective concealment: No
+
+[Done] exited with code=1 in 248.255 seconds
+
+[Running] python -u "d:\program\VC\project\math\tr\q3.py"
+Drone velocity vector: [-120.    0.    0.]
+Drop position: [17620.     0.  1800.]
+Blast position: [17188.        0.     1736.496]
+Missile velocity vector: [-298.51115706    0.          -29.85111571]
+Missile start position: [20000     0  2000]
+Missile time to decoy target: 67.00 s
+
+=== RESULTS ===
+Smoke drop time: 1.5 s
+Smoke blast time: 5.1 s
+Blast position: (17188.0, 0.0, 1736.5)
+Missile time to decoy target: 67.00 s
+Effective concealment duration: 1.420 s
+
+=== Key timepoint detailed analysis ===
+0s after blast:
+  Missile position: [18477.59309898     0.          1847.7593099 ]
+  Smoke position: [17188.        0.     1736.496]
+  Distance to LOS: 22.46 m
+  Direct distance: 1294.38 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.0��
+  Inside cloud: No
+  Effective concealment: No
+1s after blast:
+  Missile position: [18179.08194192     0.          1817.90819419]
+  Smoke position: [17188.        0.     1733.496]
+  Distance to LOS: 18.23 m
+  Direct distance: 994.67 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.1��
+  Inside cloud: No
+  Effective concealment: No
+2s after blast:
+  Missile position: [17880.57078485     0.          1788.05707849]
+  Smoke position: [17188.        0.     1730.496]
+  Distance to LOS: 13.97 m
+  Direct distance: 694.96 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.2��
+  Inside cloud: No
+  Effective concealment: No
+3s after blast:
+  Missile position: [17582.05962779     0.          1758.20596278]
+  Smoke position: [17188.        0.     1727.496]
+  Distance to LOS: 9.74 m
+  Direct distance: 395.25 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.4��
+  Inside cloud: No
+  Effective concealment: Yes
+4s after blast:
+  Missile position: [17283.54847073     0.          1728.35484707]
+  Smoke position: [17188.        0.     1724.496]
+  Distance to LOS: 5.77 m
+  Direct distance: 95.63 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 3.5��
+  Inside cloud: No
+  Effective concealment: Yes
+5s after blast:
+  Missile position: [16985.03731366     0.          1698.50373137]
+  Smoke position: [17188.        0.     1721.496]
+  Distance to LOS: 3.59 m
+  Direct distance: 204.26 m
+  Smoke between missile and target: No
+  Missile-Smoke-Target angle: 179.0��
+  Inside cloud: No
+  Effective concealment: No
+Starting basinhopping optimization...
+Iteration 10: Current value = 2.3300, Best value = 4.1900
+Iteration 20: Current value = 0.0000, Best value = 4.1900
+Iteration 30: Current value = 0.0000, Best value = 4.2400
+Iteration 40: Current value = 1.1800, Best value = 4.2400
+Iteration 50: Current value = 0.0000, Best value = 4.2400
+Iteration 60: Current value = 0.0000, Best value = 4.2400
+Iteration 70: Current value = 0.0000, Best value = 4.2400
+Iteration 80: Current value = 0.0000, Best value = 4.2400
+Iteration 90: Current value = 0.0000, Best value = 4.2400
+Iteration 100: Current value = 0.0000, Best value = 4.2400
+Iteration 110: Current value = 0.0000, Best value = 4.2400
+Iteration 120: Current value = 0.0000, Best value = 4.2400
+Iteration 130: Current value = 0.0000, Best value = 4.2400
+Iteration 140: Current value = 0.0000, Best value = 4.2400
+Iteration 150: Current value = 0.0000, Best value = 4.2400
+Iteration 160: Current value = 0.0000, Best value = 4.2400
+Iteration 170: Current value = 0.0000, Best value = 4.2400
+Iteration 180: Current value = 0.0000, Best value = 4.2400
+Iteration 190: Current value = 0.0000, Best value = 4.2400
+Iteration 200: Current value = 0.0000, Best value = 4.2400
+
+Basinhopping optimization results:
+Best direction angle (theta): 31.3329 rad
+Best speed: 121.51 m/s
+Best drop time: 6.73 s
+Best blast delay: 37.16 s
+Maximum effective concealment time: 4.2400 s
+[Running] python -u "d:\program\VC\project\math\tr\q3.py"
+  File "d:\program\VC\project\math\tr\q3.py", line 287
+    ����Ż����ԣ�����Ŵ��㷨��ȫ����������ģ���˻𣨾ֲ��Ż���
+          ^
+SyntaxError: invalid character '��' (U+FF1A)
+
+[Done] exited with code=1 in 0.118 seconds
+
+
+[Done] exited with code=1 in 604.343 seconds
+
+[Running] python -u "d:\program\VC\project\math\tr\q3.py"
+Drone velocity vector: [-120.    0.    0.]
+Drop position: [17620.     0.  1800.]
+Blast position: [17188.        0.     1736.496]
+Missile velocity vector: [-298.51115706    0.          -29.85111571]
+Missile start position: [20000     0  2000]
+Missile time to decoy target: 67.00 s
+
+=== RESULTS ===
+Smoke drop time: 1.5 s
+Smoke blast time: 5.1 s
+Blast position: (17188.0, 0.0, 1736.5)
+Missile time to decoy target: 67.00 s
+Effective concealment duration: 1.420 s
+
+=== Key timepoint detailed analysis ===
+0s after blast:
+  Missile position: [18477.59309898     0.          1847.7593099 ]
+  Smoke position: [17188.        0.     1736.496]
+  Distance to LOS: 22.46 m
+  Direct distance: 1294.38 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.0��
+  Inside cloud: No
+  Effective concealment: No
+1s after blast:
+  Missile position: [18179.08194192     0.          1817.90819419]
+  Smoke position: [17188.        0.     1733.496]
+  Distance to LOS: 18.23 m
+  Direct distance: 994.67 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.1��
+  Inside cloud: No
+  Effective concealment: No
+2s after blast:
+  Missile position: [17880.57078485     0.          1788.05707849]
+  Smoke position: [17188.        0.     1730.496]
+  Distance to LOS: 13.97 m
+  Direct distance: 694.96 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.2��
+  Inside cloud: No
+  Effective concealment: No
+3s after blast:
+  Missile position: [17582.05962779     0.          1758.20596278]
+  Smoke position: [17188.        0.     1727.496]
+  Distance to LOS: 9.74 m
+  Direct distance: 395.25 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.4��
+  Inside cloud: No
+  Effective concealment: Yes
+4s after blast:
+  Missile position: [17283.54847073     0.          1728.35484707]
+  Smoke position: [17188.        0.     1724.496]
+  Distance to LOS: 5.77 m
+  Direct distance: 95.63 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 3.5��
+  Inside cloud: No
+  Effective concealment: Yes
+5s after blast:
+  Missile position: [16985.03731366     0.          1698.50373137]
+  Smoke position: [17188.        0.     1721.496]
+  Distance to LOS: 3.59 m
+  Direct distance: 204.26 m
+  Smoke between missile and target: No
+  Missile-Smoke-Target angle: 179.0��
+  Inside cloud: No
+  Effective concealment: No
+Starting basinhopping optimization...
+Iteration 10: Current value = 1.8600, Best value = 4.0600
+Iteration 20: Current value = 0.0000, Best value = 4.0600
+Iteration 30: Current value = 0.0000, Best value = 4.3200
+Iteration 40: Current value = 0.0000, Best value = 4.3200
+
+[Done] exited with code=1 in 31.53 seconds
+
+[Running] python -u "d:\program\VC\project\math\tr\q3.py"
+���Գ�ʼ����...
+���ڵ������Ž�: theta=179.0��, speed=121.32 m/s
+��ʼͶ��ʱ��: [0.5, 2.0, 3.5]
+ʱ�������: True
+�������: name 'calculate_smoke_obscuration' is not defined
+��ʼ3������Чʱ��: -100.000s
+
+��ʼ������ϸЧ��:
+Traceback (most recent call last):
+  File "d:\program\VC\project\math\tr\q3.py", line 159, in <module>
+    calculate_multiple_smoke_obscuration(
+  File "d:\program\VC\project\math\tr\q3.py", line 16, in calculate_multiple_smoke_obscuration
+    eff_time = calculate_smoke_obscuration(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'calculate_smoke_obscuration' is not defined. Did you mean: 'calculate_multiple_smoke_obscuration'?
+
+[Done] exited with code=1 in 0.998 seconds
+
+[Running] python -u "d:\program\VC\project\math\tr\q3.py"
+Drone velocity vector: [-120.    0.    0.]
+Drop position: [17620.     0.  1800.]
+Blast position: [17188.        0.     1736.496]
+Missile velocity vector: [-298.51115706    0.          -29.85111571]
+Missile start position: [20000     0  2000]
+Missile time to decoy target: 67.00 s
+
+=== RESULTS ===
+Smoke drop time: 1.5 s
+Smoke blast time: 5.1 s
+Blast position: (17188.0, 0.0, 1736.5)
+Missile time to decoy target: 67.00 s
+Effective concealment duration: 1.420 s
+
+=== Key timepoint detailed analysis ===
+0s after blast:
+  Missile position: [18477.59309898     0.          1847.7593099 ]
+  Smoke position: [17188.        0.     1736.496]
+  Distance to LOS: 22.46 m
+  Direct distance: 1294.38 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.0��
+  Inside cloud: No
+  Effective concealment: No
+1s after blast:
+  Missile position: [18179.08194192     0.          1817.90819419]
+  Smoke position: [17188.        0.     1733.496]
+  Distance to LOS: 18.23 m
+  Direct distance: 994.67 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.1��
+  Inside cloud: No
+  Effective concealment: No
+2s after blast:
+  Missile position: [17880.57078485     0.          1788.05707849]
+  Smoke position: [17188.        0.     1730.496]
+  Distance to LOS: 13.97 m
+  Direct distance: 694.96 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.2��
+  Inside cloud: No
+  Effective concealment: No
+3s after blast:
+  Missile position: [17582.05962779     0.          1758.20596278]
+  Smoke position: [17188.        0.     1727.496]
+  Distance to LOS: 9.74 m
+  Direct distance: 395.25 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.4��
+  Inside cloud: No
+  Effective concealment: Yes
+4s after blast:
+  Missile position: [17283.54847073     0.          1728.35484707]
+  Smoke position: [17188.        0.     1724.496]
+  Distance to LOS: 5.77 m
+  Direct distance: 95.63 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 3.5��
+  Inside cloud: No
+  Effective concealment: Yes
+5s after blast:
+  Missile position: [16985.03731366     0.          1698.50373137]
+  Smoke position: [17188.        0.     1721.496]
+  Distance to LOS: 3.59 m
+  Direct distance: 204.26 m
+  Smoke between missile and target: No
+  Missile-Smoke-Target angle: 179.0��
+  Inside cloud: No
+  Effective concealment: No
+Starting basinhopping optimization...
+Iteration 10: Current value = 0.0000, Best value = 4.5800
+Iteration 20: Current value = 0.0000, Best value = 4.5800
+Iteration 30: Current value = 0.0000, Best value = 4.5800
+Iteration 40: Current value = 2.9500, Best value = 4.5800
+Iteration 50: Current value = 0.0000, Best value = 4.5800
+Iteration 60: Current value = 0.0000, Best value = 4.5800
+Iteration 70: Current value = 4.0200, Best value = 4.5800
+Iteration 80: Current value = 2.6400, Best value = 4.5800
+Iteration 90: Current value = 2.8800, Best value = 4.5800
+Iteration 100: Current value = 2.2900, Best value = 4.5800
+Iteration 110: Current value = 0.0000, Best value = 4.5800
+Iteration 120: Current value = 3.3000, Best value = 4.5800
+Iteration 130: Current value = 1.1100, Best value = 4.5800
+Iteration 140: Current value = 0.5000, Best value = 4.5800
+Iteration 150: Current value = 4.3900, Best value = 4.5800
+Iteration 160: Current value = 0.0000, Best value = 4.5800
+Iteration 170: Current value = 0.0000, Best value = 4.5800
+Iteration 180: Current value = 3.4900, Best value = 4.5800
+Iteration 190: Current value = 2.6900, Best value = 4.5800
+Iteration 200: Current value = 1.4800, Best value = 4.5800
+
+Basinhopping optimization results:
+Best direction angle (theta): 31.2581 rad
+Best speed: 119.29 m/s
+Best drop time: 4.50 s
+Best blast delay: 34.52 s
+Maximum effective concealment time: 4.5800 s
+
+Detailed best parameter info:
+Direction vector: [-0.9999, 0.0158, 0]
+Speed: 119.29 m/s (range: 70-140 m/s)
+Drop time: 0.45 s (range: 0-5 s)
+Blast delay: 3.45 s (range: 0.1-5 s)
+Improvement: 1.55 s (51.2%)
+
+Best strategy:
+Drone flight direction: angle 31.2581 rad (approx 1790.96��)
+Drone flight speed: 119.29 m/s
+Smoke drop time: 4.50 s after task start
+Smoke blast delay: 34.52 s after drop
+Estimated effective concealment time: 4.58 s
+���Գ�ʼ����...
+���ڵ������Ž�: theta=179.0��, speed=121.32 m/s
+��ʼͶ��ʱ��: [0.5, 2.0, 3.5]
+ʱ�������: True
+��ʼ3������Чʱ��: 2.550s
+
+��ʼ������ϸЧ��:
+Drone velocity vector: [-121.30122613    2.13423064    0.        ]
+Drop position: [1.77393494e+04 1.06711532e+00 1.80000000e+03]
+Blast position: [1.73754457e+04 7.46980723e+00 1.75590000e+03]
+Missile velocity vector: [-298.51115706    0.          -29.85111571]
+Missile start position: [20000     0  2000]
+Missile time to decoy target: 67.00 s
+
+=== RESULTS ===
+Smoke drop time: 0.5 s
+Smoke blast time: 3.5 s
+Blast position: (17375.4, 7.5, 1755.9)
+Missile time to decoy target: 67.00 s
+Effective concealment duration: 2.550 s
+
+=== Key timepoint detailed analysis ===
+0s after blast:
+  Missile position: [18955.21095028     0.          1895.52109503]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.75590000e+03]
+  Distance to LOS: 20.44 m
+  Direct distance: 1585.94 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.7��
+  Inside cloud: No
+  Effective concealment: No
+1s after blast:
+  Missile position: [18656.69979322     0.          1865.66997932]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.75290000e+03]
+  Distance to LOS: 16.51 m
+  Direct distance: 1286.23 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.7��
+  Inside cloud: No
+  Effective concealment: No
+2s after blast:
+  Missile position: [18358.18863615     0.          1835.81886362]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.74990000e+03]
+  Distance to LOS: 12.71 m
+  Direct distance: 986.52 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.7��
+  Inside cloud: No
+  Effective concealment: No
+3s after blast:
+  Missile position: [18059.67747909     0.          1805.96774791]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.74690000e+03]
+  Distance to LOS: 9.31 m
+  Direct distance: 686.82 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.8��
+  Inside cloud: No
+  Effective concealment: Yes
+4s after blast:
+  Missile position: [17761.16632203     0.          1776.1166322 ]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.74390000e+03]
+  Distance to LOS: 7.06 m
+  Direct distance: 387.14 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.0��
+  Inside cloud: No
+  Effective concealment: Yes
+5s after blast:
+  Missile position: [17462.65516496     0.          1746.2655165 ]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.74090000e+03]
+  Distance to LOS: 7.28 m
+  Direct distance: 87.69 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 4.8��
+  Inside cloud: No
+  Effective concealment: Yes
+
+=== �൯Ч������ ===
+�� 1: Ͷ��=0.50s, �ӳ�=3.00s, ��Ч=2.550s
+�� 2: Ͷ��=2.00s, �ӳ�=3.50s, ��Ч=0.000s
+�� 3: Ͷ��=3.50s, �ӳ�=4.00s, ��Ч=0.000s
+����Ч�ڱ�ʱ��: 2.550s
+
+��ʼ3��ģ���˻��Ż�...
+Iteration 5: Current = 0.550s, Best = 2.850s
+  Theta: 181.1��, Speed: 121.6 m/s
+  Bomb 1: Drop=0.38s, Delay=2.87s
+  Bomb 2: Drop=1.96s, Delay=2.74s
+  Bomb 3: Drop=3.21s, Delay=4.56s
+Iteration 10: Current = 0.330s, Best = 3.790s
+  Theta: 181.1��, Speed: 121.5 m/s
+  Bomb 1: Drop=0.60s, Delay=3.36s
+  Bomb 2: Drop=1.96s, Delay=2.86s
+  Bomb 3: Drop=3.50s, Delay=4.85s
+Iteration 15: ��Ч�⣨Υ��Լ����
+Iteration 20: Current = 0.890s, Best = 4.600s
+  Theta: 181.1��, Speed: 121.0 m/s
+  Bomb 1: Drop=0.19s, Delay=2.90s
+  Bomb 2: Drop=1.50s, Delay=2.61s
+  Bomb 3: Drop=3.53s, Delay=5.00s
+Iteration 25: Current = 0.000s, Best = 4.600s
+  Theta: 181.1��, Speed: 120.6 m/s
+  Bomb 1: Drop=0.00s, Delay=3.29s
+  Bomb 2: Drop=1.50s, Delay=3.33s
+  Bomb 3: Drop=3.77s, Delay=4.95s
+
+=== �Ż���� ===
+�������Чʱ��: 4.600s
+��ѷ���Ƕ�: 178.8��
+����ٶ�: 121.01 m/s
+�� 1: Ͷ��ʱ��=0.000s, ���ӳ�=3.327s
+�� 2: Ͷ��ʱ��=1.765s, ���ӳ�=3.124s
+�� 3: Ͷ��ʱ��=3.704s, ���ӳ�=5.000s
+
+ʱ�������:
+Traceback (most recent call last):
+  File "d:\program\VC\project\math\tr\q3.py", line 217, in <module>
+    print(f"�� {i+1} �͵� {i+2} ���: {interval:.3f}s {status}")
+UnicodeEncodeError: 'gbk' codec can't encode character '\u2713' in position 20: illegal multibyte sequence
+
+[Done] exited with code=1 in 191.402 seconds
+
+[Running] python -u "d:\program\VC\project\math\tr\q3.py"
+Drone velocity vector: [-120.    0.    0.]
+Drop position: [17620.     0.  1800.]
+Blast position: [17188.        0.     1736.496]
+Missile velocity vector: [-298.51115706    0.          -29.85111571]
+Missile start position: [20000     0  2000]
+Missile time to decoy target: 67.00 s
+
+=== RESULTS ===
+Smoke drop time: 1.5 s
+Smoke blast time: 5.1 s
+Blast position: (17188.0, 0.0, 1736.5)
+Missile time to decoy target: 67.00 s
+Effective concealment duration: 1.420 s
+
+=== Key timepoint detailed analysis ===
+0s after blast:
+  Missile position: [18477.59309898     0.          1847.7593099 ]
+  Smoke position: [17188.        0.     1736.496]
+  Distance to LOS: 22.46 m
+  Direct distance: 1294.38 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.0��
+  Inside cloud: No
+  Effective concealment: No
+1s after blast:
+  Missile position: [18179.08194192     0.          1817.90819419]
+  Smoke position: [17188.        0.     1733.496]
+  Distance to LOS: 18.23 m
+  Direct distance: 994.67 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.1��
+  Inside cloud: No
+  Effective concealment: No
+2s after blast:
+  Missile position: [17880.57078485     0.          1788.05707849]
+  Smoke position: [17188.        0.     1730.496]
+  Distance to LOS: 13.97 m
+  Direct distance: 694.96 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.2��
+  Inside cloud: No
+  Effective concealment: No
+3s after blast:
+  Missile position: [17582.05962779     0.          1758.20596278]
+  Smoke position: [17188.        0.     1727.496]
+  Distance to LOS: 9.74 m
+  Direct distance: 395.25 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.4��
+  Inside cloud: No
+  Effective concealment: Yes
+4s after blast:
+  Missile position: [17283.54847073     0.          1728.35484707]
+  Smoke position: [17188.        0.     1724.496]
+  Distance to LOS: 5.77 m
+  Direct distance: 95.63 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 3.5��
+  Inside cloud: No
+  Effective concealment: Yes
+5s after blast:
+  Missile position: [16985.03731366     0.          1698.50373137]
+  Smoke position: [17188.        0.     1721.496]
+  Distance to LOS: 3.59 m
+  Direct distance: 204.26 m
+  Smoke between missile and target: No
+  Missile-Smoke-Target angle: 179.0��
+  Inside cloud: No
+  Effective concealment: No
+Starting basinhopping optimization...
+Iteration 10: Current value = 0.0000, Best value = 3.1000
+Iteration 20: Current value = 0.0000, Best value = 3.1000
+Iteration 30: Current value = 0.0000, Best value = 3.1000
+Iteration 40: Current value = 0.0000, Best value = 3.1000
+Iteration 50: Current value = 0.0000, Best value = 3.1000
+Iteration 60: Current value = 0.0000, Best value = 3.1000
+Iteration 70: Current value = 0.0000, Best value = 3.1000
+Iteration 80: Current value = 0.0000, Best value = 3.1000
+Iteration 90: Current value = 0.0000, Best value = 3.1000
+Iteration 100: Current value = 0.0000, Best value = 3.1000
+Iteration 110: Current value = 0.0000, Best value = 3.1000
+Iteration 120: Current value = 0.0000, Best value = 3.1000
+Iteration 130: Current value = 0.0000, Best value = 3.1000
+Iteration 140: Current value = 0.0000, Best value = 3.1000
+Iteration 150: Current value = 0.0000, Best value = 3.1000
+Iteration 160: Current value = 0.0000, Best value = 3.1000
+Iteration 170: Current value = 0.0000, Best value = 3.1000
+Iteration 180: Current value = 0.0000, Best value = 3.1000
+Iteration 190: Current value = 0.0000, Best value = 3.1000
+Iteration 200: Current value = 0.0000, Best value = 3.1000
+
+Basinhopping optimization results:
+Best direction angle (theta): 31.2939 rad
+Best speed: 117.80 m/s
+Best drop time: 13.06 s
+Best blast delay: 41.16 s
+Maximum effective concealment time: 3.2300 s
+
+Detailed best parameter info:
+Direction vector: [-0.9999, 0.0122, 0]
+Speed: 117.80 m/s (range: 70-140 m/s)
+Drop time: 1.31 s (range: 0-5 s)
+Blast delay: 4.12 s (range: 0.1-5 s)
+Improvement: 0.20 s (6.6%)
+
+Best strategy:
+Drone flight direction: angle 31.2939 rad (approx 1793.01��)
+Drone flight speed: 117.80 m/s
+Smoke drop time: 13.06 s after task start
+Smoke blast delay: 41.16 s after drop
+Estimated effective concealment time: 3.23 s
+Testing initial parameters...
+Based on single bomb optimal solution: theta=179.0��, speed=121.32 m/s
+Initial drop times: [0.5, 2.0, 3.5]
+Time interval check: True
+Initial 3-bomb total effective time: 2.550s
+
+Initial parameters detailed effect:
+Drone velocity vector: [-121.30122613    2.13423064    0.        ]
+Drop position: [1.77393494e+04 1.06711532e+00 1.80000000e+03]
+Blast position: [1.73754457e+04 7.46980723e+00 1.75590000e+03]
+Missile velocity vector: [-298.51115706    0.          -29.85111571]
+Missile start position: [20000     0  2000]
+Missile time to decoy target: 67.00 s
+
+=== RESULTS ===
+Smoke drop time: 0.5 s
+Smoke blast time: 3.5 s
+Blast position: (17375.4, 7.5, 1755.9)
+Missile time to decoy target: 67.00 s
+Effective concealment duration: 2.550 s
+
+=== Key timepoint detailed analysis ===
+0s after blast:
+  Missile position: [18955.21095028     0.          1895.52109503]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.75590000e+03]
+  Distance to LOS: 20.44 m
+  Direct distance: 1585.94 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.7��
+  Inside cloud: No
+  Effective concealment: No
+1s after blast:
+  Missile position: [18656.69979322     0.          1865.66997932]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.75290000e+03]
+  Distance to LOS: 16.51 m
+  Direct distance: 1286.23 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.7��
+  Inside cloud: No
+  Effective concealment: No
+2s after blast:
+  Missile position: [18358.18863615     0.          1835.81886362]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.74990000e+03]
+  Distance to LOS: 12.71 m
+  Direct distance: 986.52 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.7��
+  Inside cloud: No
+  Effective concealment: No
+3s after blast:
+  Missile position: [18059.67747909     0.          1805.96774791]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.74690000e+03]
+  Distance to LOS: 9.31 m
+  Direct distance: 686.82 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.8��
+  Inside cloud: No
+  Effective concealment: Yes
+4s after blast:
+  Missile position: [17761.16632203     0.          1776.1166322 ]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.74390000e+03]
+  Distance to LOS: 7.06 m
+  Direct distance: 387.14 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.0��
+  Inside cloud: No
+  Effective concealment: Yes
+5s after blast:
+  Missile position: [17462.65516496     0.          1746.2655165 ]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.74090000e+03]
+  Distance to LOS: 7.28 m
+  Direct distance: 87.69 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 4.8��
+  Inside cloud: No
+  Effective concealment: Yes
+
+=== Multiple bombs effect analysis ===
+Bomb 1: Drop=0.50s, Delay=3.00s, Effective=2.550s
+Bomb 2: Drop=2.00s, Delay=3.50s, Effective=0.000s
+Bomb 3: Drop=3.50s, Delay=4.00s, Effective=0.000s
+Total effective obscuration time: 2.550s
+
+Starting 3-bomb simulated annealing optimization...
+Iteration 5: Current = 0.550s, Best = 2.850s
+  Theta: 181.1��, Speed: 121.6 m/s
+  Bomb 1: Drop=0.38s, Delay=2.87s
+  Bomb 2: Drop=1.96s, Delay=2.74s
+  Bomb 3: Drop=3.21s, Delay=4.56s
+Iteration 10: Current = 0.330s, Best = 3.790s
+  Theta: 181.1��, Speed: 121.5 m/s
+  Bomb 1: Drop=0.60s, Delay=3.36s
+  Bomb 2: Drop=1.96s, Delay=2.86s
+  Bomb 3: Drop=3.50s, Delay=4.85s
+Iteration 15: Invalid solution (constraint violation)
+Iteration 20: Current = 0.890s, Best = 4.600s
+  Theta: 181.1��, Speed: 121.0 m/s
+  Bomb 1: Drop=0.19s, Delay=2.90s
+  Bomb 2: Drop=1.50s, Delay=2.61s
+  Bomb 3: Drop=3.53s, Delay=5.00s
+Iteration 25: Current = 0.000s, Best = 4.600s
+  Theta: 181.1��, Speed: 120.6 m/s
+  Bomb 1: Drop=0.00s, Delay=3.29s
+  Bomb 2: Drop=1.50s, Delay=3.33s
+  Bomb 3: Drop=3.77s, Delay=4.95s
+
+=== Optimization completed ===
+Best total effective time: 4.600s
+Best direction angle: 178.8��
+Best speed: 121.01 m/s
+Bomb 1: Drop time=0.000s, Blast delay=3.327s
+Bomb 2: Drop time=1.765s, Blast delay=3.124s
+Bomb 3: Drop time=3.704s, Blast delay=5.000s
+
+Time interval check:
+Traceback (most recent call last):
+  File "d:\program\VC\project\math\tr\q3.py", line 217, in <module>
+    print(f"Bomb {i+1} and Bomb {i+2} interval: {interval:.3f}s {status}")
+UnicodeEncodeError: 'gbk' codec can't encode character '\u2713' in position 35: illegal multibyte sequence
+
+[Done] exited with code=1 in 159.237 seconds
+
+[Running] python -u "d:\program\VC\project\math\tr\q3.py"
+Drone velocity vector: [-120.    0.    0.]
+Drop position: [17620.     0.  1800.]
+Blast position: [17188.        0.     1736.496]
+Missile velocity vector: [-298.51115706    0.          -29.85111571]
+Missile start position: [20000     0  2000]
+Missile time to decoy target: 67.00 s
+
+=== RESULTS ===
+Smoke drop time: 1.5 s
+Smoke blast time: 5.1 s
+Blast position: (17188.0, 0.0, 1736.5)
+Missile time to decoy target: 67.00 s
+Effective concealment duration: 1.420 s
+
+=== Key timepoint detailed analysis ===
+0s after blast:
+  Missile position: [18477.59309898     0.          1847.7593099 ]
+  Smoke position: [17188.        0.     1736.496]
+  Distance to LOS: 22.46 m
+  Direct distance: 1294.38 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.0��
+  Inside cloud: No
+  Effective concealment: No
+1s after blast:
+  Missile position: [18179.08194192     0.          1817.90819419]
+  Smoke position: [17188.        0.     1733.496]
+  Distance to LOS: 18.23 m
+  Direct distance: 994.67 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.1��
+  Inside cloud: No
+  Effective concealment: No
+2s after blast:
+  Missile position: [17880.57078485     0.          1788.05707849]
+  Smoke position: [17188.        0.     1730.496]
+  Distance to LOS: 13.97 m
+  Direct distance: 694.96 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.2��
+  Inside cloud: No
+  Effective concealment: No
+3s after blast:
+  Missile position: [17582.05962779     0.          1758.20596278]
+  Smoke position: [17188.        0.     1727.496]
+  Distance to LOS: 9.74 m
+  Direct distance: 395.25 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.4��
+  Inside cloud: No
+  Effective concealment: Yes
+4s after blast:
+  Missile position: [17283.54847073     0.          1728.35484707]
+  Smoke position: [17188.        0.     1724.496]
+  Distance to LOS: 5.77 m
+  Direct distance: 95.63 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 3.5��
+  Inside cloud: No
+  Effective concealment: Yes
+5s after blast:
+  Missile position: [16985.03731366     0.          1698.50373137]
+  Smoke position: [17188.        0.     1721.496]
+  Distance to LOS: 3.59 m
+  Direct distance: 204.26 m
+  Smoke between missile and target: No
+  Missile-Smoke-Target angle: 179.0��
+  Inside cloud: No
+  Effective concealment: No
+Starting basinhopping optimization...
+Iteration 10: Current value = 0.0000, Best value = 3.2000
+Iteration 20: Current value = 0.0000, Best value = 3.5700
+Iteration 30: Current value = 0.0000, Best value = 3.8400
+Iteration 40: Current value = 0.0000, Best value = 3.8400
+Iteration 50: Current value = 0.0000, Best value = 3.8400
+Iteration 60: Current value = 0.0000, Best value = 4.0200
+Iteration 70: Current value = 0.0000, Best value = 4.4500
+Iteration 80: Current value = 0.0000, Best value = 4.4500
+Iteration 90: Current value = 0.0000, Best value = 4.4500
+Iteration 100: Current value = 0.0000, Best value = 4.4500
+Iteration 110: Current value = 2.0000, Best value = 4.4500
+Iteration 120: Current value = 0.0000, Best value = 4.4500
+Iteration 130: Current value = 1.6800, Best value = 4.4500
+Iteration 140: Current value = 0.1500, Best value = 4.4500
+Iteration 150: Current value = 2.5200, Best value = 4.4500
+Iteration 160: Current value = 3.4700, Best value = 4.4500
+Iteration 170: Current value = 0.0000, Best value = 4.4500
+Iteration 180: Current value = 3.4900, Best value = 4.4500
+Iteration 190: Current value = 1.5000, Best value = 4.4500
+Iteration 200: Current value = 3.0700, Best value = 4.4500
+
+Basinhopping optimization results:
+Best direction angle (theta): 31.2249 rad
+Best speed: 120.28 m/s
+Best drop time: 5.67 s
+Best blast delay: 34.76 s
+Maximum effective concealment time: 4.4500 s
+
+Detailed best parameter info:
+Direction vector: [-0.9998, 0.0191, 0]
+Speed: 120.28 m/s (range: 70-140 m/s)
+Drop time: 0.57 s (range: 0-5 s)
+Blast delay: 3.48 s (range: 0.1-5 s)
+Improvement: 1.42 s (46.9%)
+
+Best strategy:
+Drone flight direction: angle 31.2249 rad (approx 1789.06��)
+Drone flight speed: 120.28 m/s
+Smoke drop time: 5.67 s after task start
+Smoke blast delay: 34.76 s after drop
+Estimated effective concealment time: 4.45 s
+Testing initial parameters...
+Based on single bomb optimal solution: theta=179.0��, speed=121.32 m/s
+Initial drop times: [0.5, 2.0, 3.5]
+Time interval check: True
+Initial 3-bomb total effective time: 2.550s
+
+Initial parameters detailed effect:
+Drone velocity vector: [-121.30122613    2.13423064    0.        ]
+Drop position: [1.77393494e+04 1.06711532e+00 1.80000000e+03]
+Blast position: [1.73754457e+04 7.46980723e+00 1.75590000e+03]
+Missile velocity vector: [-298.51115706    0.          -29.85111571]
+Missile start position: [20000     0  2000]
+Missile time to decoy target: 67.00 s
+
+=== RESULTS ===
+Smoke drop time: 0.5 s
+Smoke blast time: 3.5 s
+Blast position: (17375.4, 7.5, 1755.9)
+Missile time to decoy target: 67.00 s
+Effective concealment duration: 2.550 s
+
+=== Key timepoint detailed analysis ===
+0s after blast:
+  Missile position: [18955.21095028     0.          1895.52109503]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.75590000e+03]
+  Distance to LOS: 20.44 m
+  Direct distance: 1585.94 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.7��
+  Inside cloud: No
+  Effective concealment: No
+1s after blast:
+  Missile position: [18656.69979322     0.          1865.66997932]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.75290000e+03]
+  Distance to LOS: 16.51 m
+  Direct distance: 1286.23 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.7��
+  Inside cloud: No
+  Effective concealment: No
+2s after blast:
+  Missile position: [18358.18863615     0.          1835.81886362]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.74990000e+03]
+  Distance to LOS: 12.71 m
+  Direct distance: 986.52 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.7��
+  Inside cloud: No
+  Effective concealment: No
+3s after blast:
+  Missile position: [18059.67747909     0.          1805.96774791]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.74690000e+03]
+  Distance to LOS: 9.31 m
+  Direct distance: 686.82 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.8��
+  Inside cloud: No
+  Effective concealment: Yes
+4s after blast:
+  Missile position: [17761.16632203     0.          1776.1166322 ]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.74390000e+03]
+  Distance to LOS: 7.06 m
+  Direct distance: 387.14 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.0��
+  Inside cloud: No
+  Effective concealment: Yes
+5s after blast:
+  Missile position: [17462.65516496     0.          1746.2655165 ]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.74090000e+03]
+  Distance to LOS: 7.28 m
+  Direct distance: 87.69 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 4.8��
+  Inside cloud: No
+  Effective concealment: Yes
+
+=== Multiple bombs effect analysis ===
+Bomb 1: Drop=0.50s, Delay=3.00s, Effective=2.550s
+Bomb 2: Drop=2.00s, Delay=3.50s, Effective=0.000s
+Bomb 3: Drop=3.50s, Delay=4.00s, Effective=0.000s
+Total effective obscuration time: 2.550s
+
+Starting 3-bomb simulated annealing optimization...
+Iteration 5: Current = 0.550s, Best = 2.850s
+  Theta: 181.1��, Speed: 121.6 m/s
+  Bomb 1: Drop=0.38s, Delay=2.87s
+  Bomb 2: Drop=1.96s, Delay=2.74s
+  Bomb 3: Drop=3.21s, Delay=4.56s
+Iteration 10: Current = 0.330s, Best = 3.790s
+  Theta: 181.1��, Speed: 121.5 m/s
+  Bomb 1: Drop=0.60s, Delay=3.36s
+  Bomb 2: Drop=1.96s, Delay=2.86s
+  Bomb 3: Drop=3.50s, Delay=4.85s
+Iteration 15: Invalid solution (constraint violation)
+Iteration 20: Current = 0.890s, Best = 4.600s
+  Theta: 181.1��, Speed: 121.0 m/s
+  Bomb 1: Drop=0.19s, Delay=2.90s
+  Bomb 2: Drop=1.50s, Delay=2.61s
+  Bomb 3: Drop=3.53s, Delay=5.00s
+Iteration 25: Current = 0.000s, Best = 4.600s
+  Theta: 181.1��, Speed: 120.6 m/s
+  Bomb 1: Drop=0.00s, Delay=3.29s
+  Bomb 2: Drop=1.50s, Delay=3.33s
+  Bomb 3: Drop=3.77s, Delay=4.95s
+
+=== Optimization completed ===
+Best total effective time: 4.600s
+Best direction angle: 178.8��
+Best speed: 121.01 m/s
+Bomb 1: Drop time=0.000s, Blast delay=3.327s
+Bomb 2: Drop time=1.765s, Blast delay=3.124s
+Bomb 3: Drop time=3.704s, Blast delay=5.000s
+
+Time interval check:
+Traceback (most recent call last):
+  File "d:\program\VC\project\math\tr\q3.py", line 217, in <module>
+    print(f"Bomb {i+1} and Bomb {i+2} interval: {interval:.3f}s {status}")
+UnicodeEncodeError: 'gbk' codec can't encode character '\u2713' in position 35: illegal multibyte sequence
+
+[Done] exited with code=1 in 226.213 seconds
+
+[Running] python -u "d:\program\VC\project\math\tr\q3.py"
+Drone velocity vector: [-120.    0.    0.]
+Drop position: [17620.     0.  1800.]
+Blast position: [17188.        0.     1736.496]
+Missile velocity vector: [-298.51115706    0.          -29.85111571]
+Missile start position: [20000     0  2000]
+Missile time to decoy target: 67.00 s
+
+=== RESULTS ===
+Smoke drop time: 1.5 s
+Smoke blast time: 5.1 s
+Blast position: (17188.0, 0.0, 1736.5)
+Missile time to decoy target: 67.00 s
+Effective concealment duration: 1.420 s
+
+=== Key timepoint detailed analysis ===
+0s after blast:
+  Missile position: [18477.59309898     0.          1847.7593099 ]
+  Smoke position: [17188.        0.     1736.496]
+  Distance to LOS: 22.46 m
+  Direct distance: 1294.38 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.0��
+  Inside cloud: No
+  Effective concealment: No
+1s after blast:
+  Missile position: [18179.08194192     0.          1817.90819419]
+  Smoke position: [17188.        0.     1733.496]
+  Distance to LOS: 18.23 m
+  Direct distance: 994.67 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.1��
+  Inside cloud: No
+  Effective concealment: No
+2s after blast:
+  Missile position: [17880.57078485     0.          1788.05707849]
+  Smoke position: [17188.        0.     1730.496]
+  Distance to LOS: 13.97 m
+  Direct distance: 694.96 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.2��
+  Inside cloud: No
+  Effective concealment: No
+3s after blast:
+  Missile position: [17582.05962779     0.          1758.20596278]
+  Smoke position: [17188.        0.     1727.496]
+  Distance to LOS: 9.74 m
+  Direct distance: 395.25 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.4��
+  Inside cloud: No
+  Effective concealment: Yes
+4s after blast:
+  Missile position: [17283.54847073     0.          1728.35484707]
+  Smoke position: [17188.        0.     1724.496]
+  Distance to LOS: 5.77 m
+  Direct distance: 95.63 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 3.5��
+  Inside cloud: No
+  Effective concealment: Yes
+5s after blast:
+  Missile position: [16985.03731366     0.          1698.50373137]
+  Smoke position: [17188.        0.     1721.496]
+  Distance to LOS: 3.59 m
+  Direct distance: 204.26 m
+  Smoke between missile and target: No
+  Missile-Smoke-Target angle: 179.0��
+  Inside cloud: No
+  Effective concealment: No
+Starting basinhopping optimization...
+Iteration 10: Current value = 2.3100, Best value = 4.5900
+Iteration 20: Current value = 0.0000, Best value = 4.5900
+Iteration 30: Current value = 4.0300, Best value = 4.5900
+Iteration 40: Current value = 2.4900, Best value = 4.5900
+Iteration 50: Current value = 4.5700, Best value = 4.5900
+Iteration 60: Current value = 3.8000, Best value = 4.5900
+Iteration 70: Current value = 3.4300, Best value = 4.5900
+Iteration 80: Current value = 0.0000, Best value = 4.5900
+Iteration 90: Current value = 2.8700, Best value = 4.5900
+Iteration 100: Current value = 3.5500, Best value = 4.5900
+Iteration 110: Current value = 0.5400, Best value = 4.5900
+Iteration 120: Current value = 0.8200, Best value = 4.5900
+Iteration 130: Current value = 0.0000, Best value = 4.5900
+Iteration 140: Current value = 3.9100, Best value = 4.5900
+Iteration 150: Current value = 1.8300, Best value = 4.5900
+Iteration 160: Current value = 1.2600, Best value = 4.5900
+Iteration 170: Current value = 0.0000, Best value = 4.5900
+Iteration 180: Current value = 0.0000, Best value = 4.5900
+Iteration 190: Current value = 2.0300, Best value = 4.5900
+Iteration 200: Current value = 0.0000, Best value = 4.5900
+
+Basinhopping optimization results:
+Best direction angle (theta): 31.2455 rad
+Best speed: 119.90 m/s
+Best drop time: 5.49 s
+Best blast delay: 35.38 s
+Maximum effective concealment time: 4.5900 s
+
+Detailed best parameter info:
+Direction vector: [-0.9999, 0.0170, 0]
+Speed: 119.90 m/s (range: 70-140 m/s)
+Drop time: 0.55 s (range: 0-5 s)
+Blast delay: 3.54 s (range: 0.1-5 s)
+Improvement: 1.56 s (51.5%)
+
+Best strategy:
+Drone flight direction: angle 31.2455 rad (approx 1790.23��)
+Drone flight speed: 119.90 m/s
+Smoke drop time: 5.49 s after task start
+Smoke blast delay: 35.38 s after drop
+Estimated effective concealment time: 4.59 s
+Testing initial parameters...
+Based on single bomb optimal solution: theta=179.0��, speed=121.32 m/s
+Initial drop times: [0.5, 2.0, 3.5]
+Time interval check: True
+Initial 3-bomb total effective time: 2.550s
+
+Initial parameters detailed effect:
+Drone velocity vector: [-121.30122613    2.13423064    0.        ]
+Drop position: [1.77393494e+04 1.06711532e+00 1.80000000e+03]
+Blast position: [1.73754457e+04 7.46980723e+00 1.75590000e+03]
+Missile velocity vector: [-298.51115706    0.          -29.85111571]
+Missile start position: [20000     0  2000]
+Missile time to decoy target: 67.00 s
+
+=== RESULTS ===
+Smoke drop time: 0.5 s
+Smoke blast time: 3.5 s
+Blast position: (17375.4, 7.5, 1755.9)
+Missile time to decoy target: 67.00 s
+Effective concealment duration: 2.550 s
+
+=== Key timepoint detailed analysis ===
+0s after blast:
+  Missile position: [18955.21095028     0.          1895.52109503]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.75590000e+03]
+  Distance to LOS: 20.44 m
+  Direct distance: 1585.94 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.7��
+  Inside cloud: No
+  Effective concealment: No
+1s after blast:
+  Missile position: [18656.69979322     0.          1865.66997932]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.75290000e+03]
+  Distance to LOS: 16.51 m
+  Direct distance: 1286.23 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.7��
+  Inside cloud: No
+  Effective concealment: No
+2s after blast:
+  Missile position: [18358.18863615     0.          1835.81886362]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.74990000e+03]
+  Distance to LOS: 12.71 m
+  Direct distance: 986.52 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.7��
+  Inside cloud: No
+  Effective concealment: No
+3s after blast:
+  Missile position: [18059.67747909     0.          1805.96774791]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.74690000e+03]
+  Distance to LOS: 9.31 m
+  Direct distance: 686.82 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.8��
+  Inside cloud: No
+  Effective concealment: Yes
+4s after blast:
+  Missile position: [17761.16632203     0.          1776.1166322 ]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.74390000e+03]
+  Distance to LOS: 7.06 m
+  Direct distance: 387.14 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.0��
+  Inside cloud: No
+  Effective concealment: Yes
+5s after blast:
+  Missile position: [17462.65516496     0.          1746.2655165 ]
+  Smoke position: [1.73754457e+04 7.46980723e+00 1.74090000e+03]
+  Distance to LOS: 7.28 m
+  Direct distance: 87.69 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 4.8��
+  Inside cloud: No
+  Effective concealment: Yes
+
+=== Multiple bombs effect analysis ===
+Bomb 1: Drop=0.50s, Delay=3.00s, Effective=2.550s
+Bomb 2: Drop=2.00s, Delay=3.50s, Effective=0.000s
+Bomb 3: Drop=3.50s, Delay=4.00s, Effective=0.000s
+Total effective obscuration time: 2.550s
+
+Starting 3-bomb simulated annealing optimization...
+Iteration 5: Current = 0.550s, Best = 2.850s
+  Theta: 181.1��, Speed: 121.6 m/s
+  Bomb 1: Drop=0.38s, Delay=2.87s
+  Bomb 2: Drop=1.96s, Delay=2.74s
+  Bomb 3: Drop=3.21s, Delay=4.56s
+Iteration 10: Current = 0.330s, Best = 3.790s
+  Theta: 181.1��, Speed: 121.5 m/s
+  Bomb 1: Drop=0.60s, Delay=3.36s
+  Bomb 2: Drop=1.96s, Delay=2.86s
+  Bomb 3: Drop=3.50s, Delay=4.85s
+Iteration 15: Invalid solution (constraint violation)
+Iteration 20: Current = 0.890s, Best = 4.600s
+  Theta: 181.1��, Speed: 121.0 m/s
+  Bomb 1: Drop=0.19s, Delay=2.90s
+  Bomb 2: Drop=1.50s, Delay=2.61s
+  Bomb 3: Drop=3.53s, Delay=5.00s
+Iteration 25: Current = 0.000s, Best = 4.600s
+  Theta: 181.1��, Speed: 120.6 m/s
+  Bomb 1: Drop=0.00s, Delay=3.29s
+  Bomb 2: Drop=1.50s, Delay=3.33s
+  Bomb 3: Drop=3.77s, Delay=4.95s
+
+=== Optimization completed ===
+Best total effective time: 4.600s
+Best direction angle: 178.8��
+Best speed: 121.01 m/s
+Bomb 1: Drop time=0.000s, Blast delay=3.327s
+Bomb 2: Drop time=1.765s, Blast delay=3.124s
+Bomb 3: Drop time=3.704s, Blast delay=5.000s
+
+Time interval check:
+Bomb 1 and Bomb 2 interval: 1.765s OK
+Bomb 2 and Bomb 3 interval: 1.939s OK
+
+=== Best strategy detailed effect ===
+Drone velocity vector: [-120.98326927    2.6127559     0.        ]
+Drop position: [17800.     0.  1800.]
+Blast position: [1.73974512e+04 8.69344829e+00 1.74575215e+03]
+Missile velocity vector: [-298.51115706    0.          -29.85111571]
+Missile start position: [20000     0  2000]
+Missile time to decoy target: 67.00 s
+
+=== RESULTS ===
+Smoke drop time: 0.0 s
+Smoke blast time: 3.3 s
+Blast position: (17397.5, 8.7, 1745.8)
+Missile time to decoy target: 67.00 s
+Effective concealment duration: 4.600 s
+
+=== Key timepoint detailed analysis ===
+0s after blast:
+  Missile position: [19006.76090233     0.          1900.67609023]
+  Smoke position: [1.73974512e+04 8.69344829e+00 1.74575215e+03]
+  Distance to LOS: 10.17 m
+  Direct distance: 1616.77 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.4��
+  Inside cloud: No
+  Effective concealment: No
+1s after blast:
+  Missile position: [18708.24974527     0.          1870.82497453]
+  Smoke position: [1.73974512e+04 8.69344829e+00 1.74275215e+03]
+  Distance to LOS: 6.10 m
+  Direct distance: 1317.07 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.3��
+  Inside cloud: No
+  Effective concealment: Yes
+2s after blast:
+  Missile position: [18409.73858821     0.          1840.97385882]
+  Smoke position: [1.73974512e+04 8.69344829e+00 1.73975215e+03]
+  Distance to LOS: 2.30 m
+  Direct distance: 1017.37 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.1��
+  Inside cloud: No
+  Effective concealment: Yes
+3s after blast:
+  Missile position: [18111.22743114     0.          1811.12274311]
+  Smoke position: [1.73974512e+04 8.69344829e+00 1.73675215e+03]
+  Distance to LOS: 3.09 m
+  Direct distance: 717.69 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.2��
+  Inside cloud: No
+  Effective concealment: Yes
+4s after blast:
+  Missile position: [17812.71627408     0.          1781.27162741]
+  Smoke position: [1.73974512e+04 8.69344829e+00 1.73375215e+03]
+  Distance to LOS: 7.19 m
+  Direct distance: 418.07 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.0��
+  Inside cloud: No
+  Effective concealment: Yes
+5s after blast:
+  Missile position: [17514.20511702     0.          1751.4205117 ]
+  Smoke position: [1.73974512e+04 8.69344829e+00 1.73075215e+03]
+  Distance to LOS: 11.58 m
+  Direct distance: 118.89 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 5.6��
+  Inside cloud: No
+  Effective concealment: No
+
+=== Multiple bombs effect analysis ===
+Bomb 1: Drop=0.00s, Delay=3.33s, Effective=4.600s
+Bomb 2: Drop=1.76s, Delay=3.12s, Effective=0.000s
+Bomb 3: Drop=3.70s, Delay=5.00s, Effective=0.000s
+Total effective obscuration time: 4.600s
+
+=== Performance comparison ===
+Single bomb optimal time: 4.600s
+3-bomb optimized time: 4.600s
+3-bomb improvement over single bomb: 0.000s (0.0%)
+3-bomb improvement over initial: 2.050s (80.4%)
+
+=== Final 3-bomb deployment strategy ===
+Drone flight direction: 178.8��
+Drone flight speed: 121.01 m/s
+Direction vector: [-0.9998, 0.0216, 0.000]
+
+Bomb 1:
+  Drop time: 0.000 s after mission start
+  Blast delay: 3.327 s
+  Estimated blast time: 3.327 s
+
+Bomb 2:
+  Drop time: 1.765 s after mission start
+  Blast delay: 3.124 s
+  Estimated blast time: 4.889 s
+
+Bomb 3:
+  Drop time: 3.704 s after mission start
+  Blast delay: 5.000 s
+  Estimated blast time: 8.704 s
+
+Estimated total effective obscuration time: 4.600 s
+Improvement over single bomb strategy: 0.000 s (0.0%)
+Starting hybrid optimization...
+First stage: using genetic algorithm for global search...
+differential_evolution step 1: f(x)= -4.109999999999957
+differential_evolution step 2: f(x)= -4.109999999999957
+differential_evolution step 3: f(x)= -4.109999999999957
+differential_evolution step 4: f(x)= -4.379999999999951
+differential_evolution step 5: f(x)= -4.379999999999951
+differential_evolution step 6: f(x)= -4.569999999999947
+differential_evolution step 7: f(x)= -6.729999999999945
+differential_evolution step 8: f(x)= -6.729999999999945
+differential_evolution step 9: f(x)= -6.729999999999945
+differential_evolution step 10: f(x)= -6.729999999999945
+differential_evolution step 11: f(x)= -6.729999999999945
+differential_evolution step 12: f(x)= -7.349999999999931
+differential_evolution step 13: f(x)= -8.419999999999922
+differential_evolution step 14: f(x)= -8.419999999999922
+differential_evolution step 15: f(x)= -8.449999999999909
+differential_evolution step 16: f(x)= -8.449999999999909
+differential_evolution step 17: f(x)= -8.449999999999909
+differential_evolution step 18: f(x)= -8.449999999999909
+differential_evolution step 19: f(x)= -8.449999999999909
+differential_evolution step 20: f(x)= -8.449999999999909
+Polishing solution with 'L-BFGS-B'
+Genetic algorithm result: 8.450s
+Second stage: using improved simulated annealing for fine optimization...
+Iteration 5: Valid, Current = 7.040s, Best = 8.450s
+  Theta: 178.3��, Speed: 107.0 m/s
+  Drop times: ['0.07', '1.25', '4.32']s
+Iteration 10: Valid, Current = 3.220s, Best = 8.450s
+  Theta: 177.3��, Speed: 106.9 m/s
+  Drop times: ['0.00', '1.00', '4.40']s
+Iteration 15: Valid, Current = 1.240s, Best = 8.450s
+  Theta: 176.6��, Speed: 106.8 m/s
+  Drop times: ['0.10', '1.35', '4.26']s
+Optimization successful! Best time: 8.450s
+
+=== Final results ===
+Best direction angle: 179.1��
+Best speed: 106.79 m/s
+Bomb 1: Drop=0.005s, Delay=3.168s
+Bomb 2: Drop=1.121s, Delay=3.523s
+Bomb 3: Drop=4.391s, Delay=3.876s
+Time intervals: [1.11645055 3.26932007]
+
+Verifying final strategy effect:
+Drone velocity vector: [-106.77987868    1.7667299     0.        ]
+Drop position: [1.77994802e+04 8.60004682e-03 1.80000000e+03]
+Blast position: [1.74612341e+04 5.60506170e+00 1.75083197e+03]
+Missile velocity vector: [-298.51115706    0.          -29.85111571]
+Missile start position: [20000     0  2000]
+Missile time to decoy target: 67.00 s
+
+=== RESULTS ===
+Smoke drop time: 0.0 s
+Smoke blast time: 3.2 s
+Blast position: (17461.2, 5.6, 1750.8)
+Missile time to decoy target: 67.00 s
+Effective concealment duration: 4.160 s
+
+=== Key timepoint detailed analysis ===
+0s after blast:
+  Missile position: [19052.95458655     0.          1905.29545865]
+  Smoke position: [1.74612341e+04 5.60506170e+00 1.75083197e+03]
+  Distance to LOS: 12.05 m
+  Direct distance: 1599.21 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.4��
+  Inside cloud: No
+  Effective concealment: No
+1s after blast:
+  Missile position: [18754.44342948     0.          1875.44434295]
+  Smoke position: [1.74612341e+04 5.60506170e+00 1.74783197e+03]
+  Distance to LOS: 8.36 m
+  Direct distance: 1299.50 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.4��
+  Inside cloud: No
+  Effective concealment: Yes
+2s after blast:
+  Missile position: [18455.93227242     0.          1845.59322724]
+  Smoke position: [1.74612341e+04 5.60506170e+00 1.74483197e+03]
+  Distance to LOS: 5.33 m
+  Direct distance: 999.80 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.3��
+  Inside cloud: No
+  Effective concealment: Yes
+3s after blast:
+  Missile position: [18157.42111536     0.          1815.74211154]
+  Smoke position: [1.74612341e+04 5.60506170e+00 1.74183197e+03]
+  Distance to LOS: 4.74 m
+  Direct distance: 700.12 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 0.4��
+  Inside cloud: No
+  Effective concealment: Yes
+4s after blast:
+  Missile position: [17858.90995829     0.          1785.89099583]
+  Smoke position: [1.74612341e+04 5.60506170e+00 1.73883197e+03]
+  Distance to LOS: 7.34 m
+  Direct distance: 400.49 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.1��
+  Inside cloud: No
+  Effective concealment: Yes
+5s after blast:
+  Missile position: [17560.39880123     0.          1756.03988012]
+  Smoke position: [1.74612341e+04 5.60506170e+00 1.73583197e+03]
+  Distance to LOS: 11.17 m
+  Direct distance: 101.36 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 6.3��
+  Inside cloud: No
+  Effective concealment: No
+
+=== Multiple bombs effect analysis ===
+Bomb 1: Drop=0.00s, Delay=3.17s, Effective=4.160s
+Bomb 2: Drop=1.12s, Delay=3.52s, Effective=4.290s
+Bomb 3: Drop=4.39s, Delay=3.88s, Effective=0.000s
+Total effective obscuration time: 8.450s
+
+Final total effective obscuration time: 8.450s
+
+[Done] exited with code=0 in 724.427 seconds
+
+[Running] python -u "d:\program\VC\project\math\tr\q4.py"
+Starting genetic algorithm optimization...
+
+  0%|          | 0/50 [00:00<?, ?it/s]
+  2%|��         | 1/50 [00:09<07:43,  9.45s/it]
+  4%|��         | 2/50 [00:18<07:11,  9.00s/it]
+  6%|��         | 3/50 [00:26<06:46,  8.64s/it]
+  8%|��         | 4/50 [00:33<06:13,  8.11s/it]
+ 10%|��         | 5/50 [00:40<05:52,  7.83s/it]
+ 12%|����        | 6/50 [00:48<05:37,  7.66s/it]
+ 14%|����        | 7/50 [00:55<05:27,  7.62s/it]
+ 16%|����        | 8/50 [01:03<05:14,  7.49s/it]
+ 18%|����        | 9/50 [01:10<05:04,  7.42s/it]
+ 20%|����        | 10/50 [01:17<04:58,  7.45s/it]
+ 22%|������       | 11/50 [01:25<04:53,  7.51s/it]
+ 24%|������       | 12/50 [01:32<04:42,  7.45s/it]
+ 26%|������       | 13/50 [01:40<04:34,  7.42s/it]
+ 28%|������       | 14/50 [01:47<04:27,  7.42s/it]
+ 30%|������       | 15/50 [01:54<04:17,  7.37s/it]
+ 32%|��������      | 16/50 [02:02<04:11,  7.40s/it]
+ 34%|��������      | 17/50 [02:09<04:03,  7.39s/it]
+ 36%|��������      | 18/50 [02:16<03:55,  7.35s/it]
+ 38%|��������      | 19/50 [02:24<03:48,  7.36s/it]
+ 40%|��������      | 20/50 [02:31<03:39,  7.32s/it]
+ 42%|����������     | 21/50 [02:38<03:32,  7.32s/it]
+ 44%|����������     | 22/50 [02:46<03:25,  7.33s/it]
+ 46%|����������     | 23/50 [02:53<03:18,  7.35s/it]
+ 48%|����������     | 24/50 [03:00<03:11,  7.35s/it]
+ 50%|����������     | 25/50 [03:08<03:03,  7.35s/it]
+ 52%|������������    | 26/50 [03:15<02:56,  7.37s/it]
+ 54%|������������    | 27/50 [03:22<02:48,  7.33s/it]
+ 56%|������������    | 28/50 [03:30<02:40,  7.29s/it]
+ 58%|������������    | 29/50 [03:37<02:32,  7.25s/it]
+ 60%|������������    | 30/50 [03:44<02:25,  7.28s/it]
+ 62%|��������������   | 31/50 [03:51<02:17,  7.26s/it]
+ 64%|��������������   | 32/50 [03:59<02:10,  7.27s/it]
+ 66%|��������������   | 33/50 [04:06<02:03,  7.27s/it]
+ 68%|��������������   | 34/50 [04:13<01:56,  7.27s/it]
+ 70%|��������������   | 35/50 [04:20<01:48,  7.24s/it]
+ 72%|����������������  | 36/50 [04:27<01:40,  7.20s/it]
+ 74%|����������������  | 37/50 [04:35<01:33,  7.21s/it]
+ 76%|����������������  | 38/50 [04:42<01:26,  7.23s/it]
+ 78%|����������������  | 39/50 [04:49<01:19,  7.22s/it]
+ 80%|����������������  | 40/50 [04:56<01:12,  7.22s/it]
+ 82%|������������������ | 41/50 [05:04<01:04,  7.20s/it]
+ 84%|������������������ | 42/50 [05:11<00:57,  7.20s/it]
+ 86%|������������������ | 43/50 [05:18<00:50,  7.19s/it]
+ 88%|������������������ | 44/50 [05:25<00:43,  7.25s/it]
+ 90%|������������������ | 45/50 [05:32<00:36,  7.22s/it]
+ 92%|��������������������| 46/50 [05:40<00:28,  7.22s/it]
+ 94%|��������������������| 47/50 [05:47<00:21,  7.22s/it]
+ 96%|��������������������| 48/50 [05:54<00:14,  7.20s/it]
+ 98%|��������������������| 49/50 [06:01<00:07,  7.18s/it]
+100%|��������������������| 50/50 [06:08<00:00,  7.18s/it]
+100%|��������������������| 50/50 [06:08<00:00,  7.38s/it]
+
+Found 5 valid solutions:
+Solution 1: i=46, j=83, q=11, s=6, Result=0.3300000000000001
+Solution 2: i=43, j=113, q=6, s=7, Result=0.9900000000000007
+Solution 3: i=43, j=114, q=6, s=7, Result=4.379999999999951
+Solution 4: i=43, j=115, q=6, s=7, Result=3.609999999999967
+Solution 5: i=44, j=90, q=9, s=7, Result=1.340000000000001
+
+[Done] exited with code=0 in 403.649 seconds
+
+[Running] python -u "d:\program\VC\project\math\tr\q5.py"
+Assignment results (each missile assigned to drone, based on distance to missile flight line):
+M1 assigned to FY1, vertical distance 19.90 meters
+M2 assigned to FY2, vertical distance 1022.92 meters
+M3 assigned to FY5, vertical distance 1567.70 meters
+
+Distance matrix from all drones to missile flight lines (rows: missiles, columns: drones):
+Missile\Drone         FY1         FY2         FY3         FY4         FY5
+        M1       19.90     1414.07     3001.65     2117.82     2000.00
+        M2      585.39     1022.92     3188.24     1749.01     2412.71
+        M3      597.90     1804.35     2799.02     2451.36     1567.70
+
+Flight direction vectors for each missile (pointing to origin):
+M1: [-20000      0  -2000] (length: 20099.75 m)
+M2: [-19000   -600  -2100] (length: 19125.11 m)
+M3: [-18000    600  -1900] (length: 18109.94 m)
+Starting genetic algorithm optimization...
+
+  0%|          | 0/50 [00:00<?, ?it/s]
+  2%|��         | 1/50 [00:08<06:46,  8.29s/it]
+  4%|��         | 2/50 [00:16<06:22,  7.96s/it]
+  6%|��         | 3/50 [00:23<06:06,  7.81s/it]
+  8%|��         | 4/50 [00:31<05:56,  7.76s/it]
+ 10%|��         | 5/50 [00:39<05:47,  7.73s/it]
+ 12%|����        | 6/50 [00:46<05:39,  7.72s/it]
+ 14%|����        | 7/50 [00:54<05:30,  7.68s/it]
+ 16%|����        | 8/50 [01:01<05:21,  7.65s/it]
+ 18%|����        | 9/50 [01:09<05:15,  7.69s/it]
+ 20%|����        | 10/50 [01:17<05:07,  7.69s/it]
+ 22%|������       | 11/50 [01:25<04:59,  7.68s/it]
+ 24%|������       | 12/50 [01:32<04:50,  7.65s/it]
+ 26%|������       | 13/50 [01:40<04:44,  7.69s/it]
+ 28%|������       | 14/50 [01:49<04:47,  7.97s/it]
+ 30%|������       | 15/50 [01:56<04:36,  7.90s/it]
+ 32%|��������      | 16/50 [02:04<04:27,  7.88s/it]
+ 34%|��������      | 17/50 [02:12<04:18,  7.84s/it]
+ 36%|��������      | 18/50 [02:19<04:09,  7.79s/it]
+ 38%|��������      | 19/50 [02:27<04:02,  7.81s/it]
+ 40%|��������      | 20/50 [02:35<03:52,  7.75s/it]
+ 42%|����������     | 21/50 [02:43<03:43,  7.72s/it]
+ 44%|����������     | 22/50 [02:50<03:35,  7.71s/it]
+ 46%|����������     | 23/50 [02:58<03:28,  7.71s/it]
+ 48%|����������     | 24/50 [03:06<03:20,  7.70s/it]
+ 50%|����������     | 25/50 [03:13<03:12,  7.70s/it]
+ 52%|������������    | 26/50 [03:21<03:04,  7.69s/it]
+ 54%|������������    | 27/50 [03:29<02:56,  7.66s/it]
+ 56%|������������    | 28/50 [03:36<02:48,  7.64s/it]
+ 58%|������������    | 29/50 [03:44<02:41,  7.67s/it]
+ 60%|������������    | 30/50 [03:52<02:33,  7.67s/it]
+ 62%|��������������   | 31/50 [03:59<02:26,  7.69s/it]
+ 64%|��������������   | 32/50 [04:07<02:18,  7.70s/it]
+ 66%|��������������   | 33/50 [04:16<02:14,  7.92s/it]
+ 68%|��������������   | 34/50 [04:24<02:10,  8.13s/it]
+ 70%|��������������   | 35/50 [04:32<02:00,  8.01s/it]
+ 72%|����������������  | 36/50 [04:40<01:53,  8.13s/it]
+ 74%|����������������  | 37/50 [04:48<01:44,  8.06s/it]
+ 76%|����������������  | 38/50 [04:56<01:34,  7.90s/it]
+ 78%|����������������  | 39/50 [05:04<01:28,  8.08s/it]
+ 80%|����������������  | 40/50 [05:12<01:21,  8.14s/it]
+ 82%|������������������ | 41/50 [05:20<01:11,  7.98s/it]
+ 84%|������������������ | 42/50 [05:28<01:02,  7.85s/it]
+ 86%|������������������ | 43/50 [05:35<00:54,  7.82s/it]
+ 88%|������������������ | 44/50 [05:44<00:47,  7.96s/it]
+ 90%|������������������ | 45/50 [05:52<00:40,  8.06s/it]
+ 92%|��������������������| 46/50 [06:00<00:32,  8.01s/it]
+ 94%|��������������������| 47/50 [06:08<00:24,  8.03s/it]
+ 96%|��������������������| 48/50 [06:16<00:16,  8.09s/it]
+ 98%|��������������������| 49/50 [06:25<00:08,  8.25s/it]
+100%|��������������������| 50/50 [06:33<00:00,  8.32s/it]
+100%|��������������������| 50/50 [06:33<00:00,  7.88s/it]
+
+Found 1 solutions that meet the criteria:
+Solution 1: i=52, j=86, q=13, s=0, result=3.9699999999999593
+
+[Done] exited with code=0 in 399.112 seconds
+
+[Running] python -u "d:\program\VC\project\math\tr\q2.py"
+Drone velocity vector: [-120.    0.    0.]
+Drop position: [17620.     0.  1800.]
+Blast position: [17188.        0.     1736.496]
+Missile velocity vector: [-298.51115706    0.          -29.85111571]
+Missile start position: [20000     0  2000]
+Missile time to decoy target: 67.00 s
+
+=== RESULTS ===
+Smoke drop time: 1.5 s
+Smoke blast time: 5.1 s
+Blast position: (17188.0, 0.0, 1736.5)
+Missile time to decoy target: 67.00 s
+Effective concealment duration: 1.420 s
+
+=== Key timepoint detailed analysis ===
+0s after blast:
+  Missile position: [18477.59309898     0.          1847.7593099 ]
+  Smoke position: [17188.        0.     1736.496]
+  Distance to LOS: 22.46 m
+  Direct distance: 1294.38 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.0��
+  Inside cloud: No
+  Effective concealment: No
+1s after blast:
+  Missile position: [18179.08194192     0.          1817.90819419]
+  Smoke position: [17188.        0.     1733.496]
+  Distance to LOS: 18.23 m
+  Direct distance: 994.67 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.1��
+  Inside cloud: No
+  Effective concealment: No
+2s after blast:
+  Missile position: [17880.57078485     0.          1788.05707849]
+  Smoke position: [17188.        0.     1730.496]
+  Distance to LOS: 13.97 m
+  Direct distance: 694.96 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.2��
+  Inside cloud: No
+  Effective concealment: No
+3s after blast:
+  Missile position: [17582.05962779     0.          1758.20596278]
+  Smoke position: [17188.        0.     1727.496]
+  Distance to LOS: 9.74 m
+  Direct distance: 395.25 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 1.4��
+  Inside cloud: No
+  Effective concealment: Yes
+4s after blast:
+  Missile position: [17283.54847073     0.          1728.35484707]
+  Smoke position: [17188.        0.     1724.496]
+  Distance to LOS: 5.77 m
+  Direct distance: 95.63 m
+  Smoke between missile and target: Yes
+  Missile-Smoke-Target angle: 3.5��
+  Inside cloud: No
+  Effective concealment: Yes
+5s after blast:
+  Missile position: [16985.03731366     0.          1698.50373137]
+  Smoke position: [17188.        0.     1721.496]
+  Distance to LOS: 3.59 m
+  Direct distance: 204.26 m
+  Smoke between missile and target: No
+  Missile-Smoke-Target angle: 179.0��
+  Inside cloud: No
+  Effective concealment: No
+Starting basinhopping optimization...
+Iteration 10: Current value = 1.4600, Best value = 4.6000
+Iteration 20: Current value = 2.7500, Best value = 4.6000
+Iteration 30: Current value = 0.0000, Best value = 4.6000
+Iteration 40: Current value = 3.9700, Best value = 4.6000
+Iteration 50: Current value = 3.7200, Best value = 4.6000
+Iteration 60: Current value = 0.0000, Best value = 4.6000
+Iteration 70: Current value = 0.0000, Best value = 4.6000
+Iteration 80: Current value = 1.6000, Best value = 4.6000
+Iteration 90: Current value = 2.6300, Best value = 4.6000
+Iteration 100: Current value = 2.7900, Best value = 4.6000
+
+[Done] exited with code=1 in 50.922 seconds
+
+[Running] python -u "d:\program\VC\project\math\tr\q5.py"
+Assignment results (each missile assigned to drone, based on distance to missile flight line):
+M1 assigned to FY1, vertical distance 19.90 meters
+M2 assigned to FY2, vertical distance 1022.92 meters
+M3 assigned to FY5, vertical distance 1567.70 meters
+
+Distance matrix from all drones to missile flight lines (rows: missiles, columns: drones):
+Missile\Drone         FY1         FY2         FY3         FY4         FY5
+        M1       19.90     1414.07     3001.65     2117.82     2000.00
+        M2      585.39     1022.92     3188.24     1749.01     2412.71
+        M3      597.90     1804.35     2799.02     2451.36     1567.70
+
+Flight direction vectors for each missile (pointing to origin):
+M1: [-20000      0  -2000] (length: 20099.75 m)
+M2: [-19000   -600  -2100] (length: 19125.11 m)
+M3: [-18000    600  -1900] (length: 18109.94 m)
+Starting genetic algorithm optimization...
+
+  0%|          | 0/50 [00:00<?, ?it/s]
+  2%|��         | 1/50 [00:08<07:00,  8.59s/it]
+  4%|��         | 2/50 [00:16<06:28,  8.08s/it]
+  6%|��         | 3/50 [00:23<06:06,  7.81s/it]
+  8%|��         | 4/50 [00:31<05:56,  7.75s/it]
+ 10%|��         | 5/50 [00:39<05:46,  7.70s/it]
+ 12%|����        | 6/50 [00:46<05:36,  7.66s/it]
+ 14%|����        | 7/50 [00:54<05:28,  7.63s/it]
+ 16%|����        | 8/50 [01:01<05:19,  7.61s/it]
+ 18%|����        | 9/50 [01:09<05:09,  7.55s/it]
+ 20%|����        | 10/50 [01:16<04:59,  7.50s/it]
+ 22%|������       | 11/50 [01:24<04:51,  7.49s/it]
+ 24%|������       | 12/50 [01:31<04:44,  7.48s/it]
+ 26%|������       | 13/50 [01:39<04:37,  7.50s/it]
+ 28%|������       | 14/50 [01:46<04:29,  7.48s/it]
+ 30%|������       | 15/50 [01:53<04:22,  7.49s/it]
+ 32%|��������      | 16/50 [02:01<04:14,  7.47s/it]
+ 34%|��������      | 17/50 [02:08<04:05,  7.45s/it]
+ 36%|��������      | 18/50 [02:16<03:59,  7.47s/it]
+ 38%|��������      | 19/50 [02:23<03:51,  7.47s/it]
+ 40%|��������      | 20/50 [02:31<03:47,  7.57s/it]
+ 42%|����������     | 21/50 [02:39<03:42,  7.66s/it]
+ 44%|����������     | 22/50 [02:47<03:35,  7.68s/it]
+ 46%|����������     | 23/50 [02:54<03:27,  7.68s/it]
+ 48%|����������     | 24/50 [03:02<03:19,  7.66s/it]
+ 50%|����������     | 25/50 [03:09<03:09,  7.59s/it]
+ 52%|������������    | 26/50 [03:17<03:00,  7.54s/it]
+ 54%|������������    | 27/50 [03:24<02:52,  7.51s/it]
+ 56%|������������    | 28/50 [03:32<02:44,  7.47s/it]
+ 58%|������������    | 29/50 [03:39<02:35,  7.42s/it]
+ 60%|������������    | 30/50 [03:47<02:31,  7.57s/it]
+ 62%|��������������   | 31/50 [03:54<02:23,  7.55s/it]
+ 64%|��������������   | 32/50 [04:02<02:13,  7.42s/it]
+ 66%|��������������   | 33/50 [04:09<02:04,  7.30s/it]
+ 68%|��������������   | 34/50 [04:16<01:55,  7.20s/it]
+ 70%|��������������   | 35/50 [04:23<01:47,  7.15s/it]
+ 72%|����������������  | 36/50 [04:29<01:39,  7.09s/it]
+ 74%|����������������  | 37/50 [04:37<01:31,  7.07s/it]
+ 76%|����������������  | 38/50 [04:43<01:24,  7.03s/it]
+ 78%|����������������  | 39/50 [04:51<01:17,  7.05s/it]
+ 80%|����������������  | 40/50 [04:58<01:10,  7.05s/it]
+ 82%|������������������ | 41/50 [05:05<01:03,  7.02s/it]
+ 84%|������������������ | 42/50 [05:12<00:56,  7.01s/it]
+ 86%|������������������ | 43/50 [05:20<00:51,  7.42s/it]
+ 88%|������������������ | 44/50 [05:31<00:50,  8.38s/it]
+ 90%|������������������ | 45/50 [05:41<00:44,  8.95s/it]
+ 92%|��������������������| 46/50 [05:48<00:33,  8.42s/it]
+ 94%|��������������������| 47/50 [05:55<00:24,  8.04s/it]
+ 96%|��������������������| 48/50 [06:02<00:15,  7.74s/it]
+ 98%|��������������������| 49/50 [06:09<00:07,  7.53s/it]
+100%|��������������������| 50/50 [06:16<00:00,  7.39s/it]
+100%|��������������������| 50/50 [06:16<00:00,  7.54s/it]
+
+Found 1 solutions that meet the criteria:
+Solution 1: i=45, j=93, q=7, s=4, result=4.179999999999955
+
+[Done] exited with code=0 in 379.688 seconds
+

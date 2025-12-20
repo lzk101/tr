@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 def calculate_smoke_obscuration(drone_direction, drone_speed, drop_time, blast_delay, 
-                               visualize=False, verbose=False):
+                                visualize=True, verbose=True):
     """
     Calculate effective concealment time of a smoke screen for missile M1.
 
