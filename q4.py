@@ -2,77 +2,109 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-def calculate_smoke_obscuration(drone_direction, drone_speed, drop_time, blast_delay, 
+def calculate_smoke_obscuration(drone_direction1, drone_speed1, drop_time1, blast_delay1, drone_direction2, drone_speed2, drop_time2, blast_delay2, drone_direction3, drone_speed3, drop_time3, blast_delay3, 
                                 visualize=False, verbose=False):
     """
-    Calculate the effective concealment time of smoke screen interference on missile M1
+    计算烟幕对导弹M1的有效遮蔽时间
     
-    Parameters:
-    drone_direction: drone flight direction vector (3D vector)
-    drone_speed: drone speed (m/s)
-    drop_time: time after task assignment when smoke is dropped (s)
-    blast_delay: delay from drop to detonation (s)
-    visualize: whether to visualize results
-    verbose: whether to output detailed information
+    参数：
+    drone_direction: 无人机飞行方向向量 (3D向量)
+    drone_speed: 无人机速度 (m/s)
+    drop_time: 任务分配后投放烟幕的时间 (s)
+    blast_delay: 从投放至爆炸的延迟 (s)
+    visualize: 是否可视化结果
+    verbose: 是否输出详细信息
     
-    Returns:
-    effective_time: effective concealment time (s)
+    返回：
+    effective_time: 有效遮蔽时间 (s)
     """
     
-    # Define constants
+    # 定义常量
     g = 9.8
     v_missile = 300
     v_smoke_sink = 3
     effective_radius = 10
     effective_duration = 20
 
-    # Target positions
+    # 目标位置
     fake_target = np.array([0, 0, 0])
     real_target = np.array([0, 200, 0])
 
-    # Missile M1 initial position
+    # 导弹M1初始位置
     M1_start = np.array([20000, 0, 2000])
 
-    # Drone FY1 initial position
-    FY1_start = np.array([12000,1400,1400])
+    # 无人机FY1初始位置
+    FY1_start = np.array([17800,0,1800])
+    FY2_start = np.array([12000,1400,1400])
+    FY3_start = np.array([6000,-3000,700])
     
-    # Normalize drone direction vector
-    drone_direction = np.array(drone_direction)
-    if np.linalg.norm(drone_direction) > 0:
-        drone_direction = drone_direction / np.linalg.norm(drone_direction)
+    # 归一化无人机方向向量
+    drone_direction1 = np.array(drone_direction1)
+    if np.linalg.norm(drone_direction1) > 0:
+        drone_direction1 = drone_direction1 / np.linalg.norm(drone_direction1)
+    drone_direction2 = np.array(drone_direction2)  
+    if np.linalg.norm(drone_direction2) > 0:
+        drone_direction2 = drone_direction2 / np.linalg.norm(drone_direction2)
+    drone_direction3 = np.array(drone_direction3)  
+    if np.linalg.norm(drone_direction3) > 0:
+        drone_direction3 = drone_direction3 / np.linalg.norm(drone_direction3)
     
-    # Drone velocity vector
-    v_drone_vector = drone_speed * drone_direction
+    # 无人机速度向量
+    v_drone_vector1 = drone_speed1 * drone_direction1
+    v_drone_vector2 = drone_speed2 * drone_direction2
+    v_drone_vector3 = drone_speed3 * drone_direction3
     
     if verbose:
-        print(f"Drone velocity vector: {v_drone_vector}")
+        print(f"无人机1速度向量: {v_drone_vector1}")
+        print(f"无人机2速度向量: {v_drone_vector2}")
+        print(f"无人机3速度向量: {v_drone_vector3}")
 
-    # Time parameters
-    t_drop = drop_time
-    t_blast_delay = blast_delay
-    t_blast = t_drop + t_blast_delay
+    # 时间参数
+    t_drop1 = drop_time1
+    t_blast_delay1 = blast_delay1
+    t_blast1 = t_drop1 + t_blast_delay1
+    t_drop2 = drop_time2
+    t_blast_delay2 = blast_delay2
+    t_blast2 = t_drop2 + t_blast_delay2
+    t_drop3 = drop_time3
+    t_blast_delay3 = blast_delay3
+    t_blast3 = t_drop3 + t_blast_delay3
 
-    # Calculate positions
-    drop_position = FY1_start + v_drone_vector * t_drop
-    vertical_drop = 0.5 * g * t_blast_delay**2
-    blast_position = np.array([drop_position[0] + v_drone_vector[0] * t_blast_delay, 
-                              drop_position[1] + v_drone_vector[1] * t_blast_delay, 
-                              drop_position[2] - vertical_drop])
+    # 计算位置
+    drop_position1 = FY1_start + v_drone_vector1 * t_drop1
+    vertical_drop1 = 0.5 * g * t_blast_delay1**2
+    blast_position1 = np.array([drop_position1[0] + v_drone_vector1[0] * t_blast_delay1, 
+                                drop_position1[1] + v_drone_vector1[1] * t_blast_delay1, 
+                                drop_position1[2] - vertical_drop1])
+    drop_position2 = FY2_start + v_drone_vector2 * t_drop2
+    vertical_drop2 = 0.5 * g * t_blast_delay2**2
+    blast_position2 = np.array([drop_position2[0] + v_drone_vector2[0] * t_blast_delay2, 
+                                drop_position2[1] + v_drone_vector2[1] * t_blast_delay2, 
+                                drop_position2[2] - vertical_drop2])
+    drop_position3 = FY3_start + v_drone_vector3 * t_drop3
+    vertical_drop3 = 0.5 * g * t_blast_delay3**2
+    blast_position3 = np.array([drop_position3[0] + v_drone_vector3[0] * t_blast_delay3, 
+                                drop_position3[1] + v_drone_vector3[1] * t_blast_delay3, 
+                                drop_position3[2] - vertical_drop3])
 
     if verbose:
-        print(f"Drop position: {drop_position}")
-        print(f"Blast position: {blast_position}")
+        print(f"投放位置1: {drop_position1}")
+        print(f"爆炸位置1: {blast_position1}")
+        print(f"投放位置2: {drop_position2}")
+        print(f"爆炸位置2: {blast_position2}")
+        print(f"投放位置3: {drop_position3}")
+        print(f"爆炸位置3: {blast_position3}")
 
-    # Missile flight direction (towards fake target)
+    # 导弹飞行方向（朝向假目标）
     missile_direction = fake_target - M1_start
     missile_direction = missile_direction / np.linalg.norm(missile_direction)
     v_missile_vector = v_missile * missile_direction
     
     if verbose:
-        print(f"Missile velocity vector: {v_missile_vector}")
-        print(f"Missile initial position: {M1_start}")
+        print(f"导弹速度向量: {v_missile_vector}")
+        print(f"导弹初始位置: {M1_start}")
 
-    # Calculate time for missile to reach fake target
+    # 计算导弹到达假目标的时间
     def time_to_target(position, velocity, target):
         t_x = (target[0] - position[0]) / velocity[0]
         return t_x
@@ -80,35 +112,118 @@ def calculate_smoke_obscuration(drone_direction, drone_speed, drop_time, blast_d
     t_missile_to_target = time_to_target(M1_start, v_missile_vector, fake_target)
     
     if verbose:
-        print(f"Missile time to fake target: {t_missile_to_target:.2f} s")
+        print(f"导弹到达假目标的时间: {t_missile_to_target:.2f} s")
 
-    # Calculate missile position at time t
+    # 计算导弹在时间t的位置
     def missile_position(t):
         return M1_start + v_missile_vector * t
 
-    # Calculate smoke cloud position at time t (since blast)
-    def smoke_position(t_smoke):
-        return np.array([blast_position[0], blast_position[1], blast_position[2] - v_smoke_sink * t_smoke])
+    # 计算烟云在时间t的位置（自爆炸以来）
+    def smoke1_position(t_smoke):
+        return np.array([blast_position1[0], blast_position1[1], blast_position1[2] - v_smoke_sink * t_smoke])
+    def smoke2_position(t_smoke):
+        return np.array([blast_position2[0], blast_position2[1], blast_position2[2] - v_smoke_sink * t_smoke])
+    def smoke3_position(t_smoke):
+        return np.array([blast_position3[0], blast_position3[1], blast_position3[2] - v_smoke_sink * t_smoke])
 
-    # Angle condition: determine if smoke is between missile and real target
-    def is_smoke_between(missile_pos, smoke_pos, target_pos):
+    # 角度条件：确定烟幕是否在导弹和真实目标之间
+    def is_smoke1_between(missile_pos, smoke_pos, target_pos):
         missile_to_smoke = smoke_pos - missile_pos
         missile_to_target = target_pos - missile_pos
         
         dot_product = np.dot(missile_to_smoke, missile_to_target)
+        
+        cos_angle = dot_product / (np.linalg.norm(missile_to_smoke) * np.linalg.norm(missile_to_target))
+        
+        return cos_angle > 0
+    def is_smoke2_between(missile_pos, smoke_pos, target_pos):
+        missile_to_smoke = smoke_pos - missile_pos
+        missile_to_target = target_pos - missile_pos
+        
+        dot_product = np.dot(missile_to_smoke, missile_to_target)
+        
+        cos_angle = dot_product / (np.linalg.norm(missile_to_smoke) * np.linalg.norm(missile_to_target))
+        
+        return cos_angle > 0
+    def is_smoke3_between(missile_pos, smoke_pos, target_pos):
+        missile_to_smoke = smoke_pos - missile_pos
+        missile_to_target = target_pos - missile_pos
+        
+        dot_product = np.dot(missile_to_smoke, missile_to_target)
+        
         cos_angle = dot_product / (np.linalg.norm(missile_to_smoke) * np.linalg.norm(missile_to_target))
         
         return cos_angle > 0
 
-    # Calculate distance from point to line
+    # 计算点到线的距离
     def distance_point_to_line(point, line_point, line_direction):
         ap = point - line_point
         projection = np.dot(ap, line_direction) / np.linalg.norm(line_direction)
         foot_point = line_point + projection * line_direction
         return np.linalg.norm(point - foot_point)
 
-    # Determine if missile passes through smoke cloud
-    def is_missile_through_smoke(missile_pos, smoke_pos, missile_prev_pos, smoke_prev_pos):
+    # 确定导弹是否穿过烟云
+    def is_missile_through_smoke1(missile_pos, smoke_pos, missile_prev_pos, smoke_prev_pos):
+        radius = effective_radius
+        
+        missile_move = missile_pos - missile_prev_pos
+        missile_move_length = np.linalg.norm(missile_move)
+        
+        if missile_move_length == 0:
+            return False
+        
+        smoke_move = smoke_pos - smoke_prev_pos
+        relative_move = missile_move - smoke_move
+        relative_move_length = np.linalg.norm(relative_move)
+        
+        if relative_move_length == 0:
+            return np.linalg.norm(missile_pos - smoke_pos) <= radius
+        
+        relative_direction = relative_move / relative_move_length
+        smoke_to_missile = missile_prev_pos - smoke_prev_pos
+        projection = np.dot(smoke_to_missile, relative_direction)
+        perpendicular_dist = np.linalg.norm(smoke_to_missile - projection * relative_direction)
+        
+        if perpendicular_dist <= radius and 0 <= projection <= relative_move_length:
+            return True
+        
+        if np.linalg.norm(missile_prev_pos - smoke_prev_pos) <= radius:
+            return True
+        if np.linalg.norm(missile_pos - smoke_pos) <= radius:
+            return True
+        
+        return False
+    def is_missile_through_smoke2(missile_pos, smoke_pos, missile_prev_pos, smoke_prev_pos):
+        radius = effective_radius
+        
+        missile_move = missile_pos - missile_prev_pos
+        missile_move_length = np.linalg.norm(missile_move)
+        
+        if missile_move_length == 0:
+            return False
+        
+        smoke_move = smoke_pos - smoke_prev_pos
+        relative_move = missile_move - smoke_move
+        relative_move_length = np.linalg.norm(relative_move)
+        
+        if relative_move_length == 0:
+            return np.linalg.norm(missile_pos - smoke_pos) <= radius
+        
+        relative_direction = relative_move / relative_move_length
+        smoke_to_missile = missile_prev_pos - smoke_prev_pos
+        projection = np.dot(smoke_to_missile, relative_direction)
+        perpendicular_dist = np.linalg.norm(smoke_to_missile - projection * relative_direction)
+        
+        if perpendicular_dist <= radius and 0 <= projection <= relative_move_length:
+            return True
+        
+        if np.linalg.norm(missile_prev_pos - smoke_prev_pos) <= radius:
+            return True
+        if np.linalg.norm(missile_pos - smoke_pos) <= radius:
+            return True
+        
+        return False
+    def is_missile_through_smoke3(missile_pos, smoke_pos, missile_prev_pos, smoke_prev_pos):
         radius = effective_radius
         
         missile_move = missile_pos - missile_prev_pos
@@ -139,9 +254,9 @@ def calculate_smoke_obscuration(drone_direction, drone_speed, drop_time, blast_d
         
         return False
 
-    # Calculate effective concealment time
+    # 计算有效遮蔽时间
     start_time = 0
-    end_time = min(effective_duration, t_missile_to_target - t_blast)
+    end_time = min(effective_duration, t_missile_to_target - t_blast1 - t_blast2 - t_blast3)
     
     if end_time <= 0:
         return 0.0
@@ -150,106 +265,157 @@ def calculate_smoke_obscuration(drone_direction, drone_speed, drop_time, blast_d
     total_effective_time = 0.0
     current_time = start_time
     
-    # Store previous positions for crossing detection
-    prev_missile_pos = missile_position(t_blast)
-    prev_smoke_pos = smoke_position(0)
+    # 存储前一位置用于穿越检测
+    prev_missile_pos = missile_position(t_blast1 + t_blast2 + t_blast3 )
+    prev_smoke1_pos = smoke1_position(0)
+    prev_smoke2_pos = smoke2_position(0)
+    prev_smoke3_pos = smoke3_position(0)
     
     while current_time <= end_time:
-        t_missile = t_blast + current_time
+        t_missile = t_blast1 + t_blast2 + t_blast3 + current_time
         if t_missile > t_missile_to_target:
             break
             
         pos_missile = missile_position(t_missile)
-        pos_smoke = smoke_position(current_time)
+        pos_smoke1 = smoke1_position(current_time)
+        pos_smoke2 = smoke2_position(current_time)
+        pos_smoke3 = smoke3_position(current_time)
         
         # Compute distance
         missile_to_target_direction = real_target - pos_missile
         missile_to_target_direction = missile_to_target_direction / np.linalg.norm(missile_to_target_direction)
-        distance = distance_point_to_line(pos_smoke, pos_missile, missile_to_target_direction)
+        distance1 = distance_point_to_line(pos_smoke1, pos_missile, missile_to_target_direction)
+        distance2 = distance_point_to_line(pos_smoke2, pos_missile, missile_to_target_direction)
+        distance3 = distance_point_to_line(pos_smoke3, pos_missile, missile_to_target_direction)
         
         # Check angle condition
-        is_between = is_smoke_between(pos_missile, pos_smoke, real_target)
+        is_between = is_smoke1_between(pos_missile, pos_smoke1, real_target) + is_smoke2_between(pos_missile, pos_smoke2, real_target) + is_smoke3_between(pos_missile, pos_smoke3, real_target)
         
         # Check if missile passes through smoke cloud
-        is_through = is_missile_through_smoke(pos_missile, pos_smoke, prev_missile_pos, prev_smoke_pos)
+        is_through = is_missile_through_smoke1(pos_missile, pos_smoke1, prev_missile_pos, prev_smoke1_pos) + is_missile_through_smoke2(pos_missile, pos_smoke2, prev_missile_pos, prev_smoke2_pos) + is_missile_through_smoke3(pos_missile, pos_smoke3, prev_missile_pos, prev_smoke3_pos)
         
         # Check if missile is inside the cloud
-        in_smoke = np.linalg.norm(pos_missile - pos_smoke) <= effective_radius
+        in_smoke1 = np.linalg.norm(pos_missile - pos_smoke1) <= effective_radius
+        in_smoke2 = np.linalg.norm(pos_missile - pos_smoke2) <= effective_radius
+        in_smoke3 = np.linalg.norm(pos_missile - pos_smoke3) <= effective_radius
+        in_smoke = in_smoke1 + in_smoke2 + in_smoke3
         
-        if (distance <= effective_radius and is_between) or is_through or in_smoke:
+        if (distance1 <= effective_radius and is_between) or (distance2 <= effective_radius and is_between) or (distance3 <= effective_radius and is_between) or is_through or in_smoke:
             total_effective_time += time_step
         
-        # Update previous positions
+        # 更新前一位置
         prev_missile_pos = pos_missile
-        prev_smoke_pos = pos_smoke
+        prev_smoke1_pos = pos_smoke1
+        prev_smoke2_pos = pos_smoke2
+        prev_smoke3_pos = pos_smoke3
         
         current_time += time_step
     
     if verbose:
-        print(f"\n=== Calculation Results ===")
-        print(f"Smoke bomb drop time: {t_drop:.1f} s")
-        print(f"Smoke bomb blast time: {t_blast:.1f} s")
-        print(f"Blast position: ({blast_position[0]:.1f}, {blast_position[1]:.1f}, {blast_position[2]:.1f})")
-        print(f"Missile time to fake target: {t_missile_to_target:.2f} s")
-        print(f"Effective concealment duration: {total_effective_time:.3f} seconds")
+        print(f"\n=== 计算结果 ===")
+        print(f"烟幕弹1投放时间: {t_drop1:.1f} s")
+        print(f"烟幕弹1爆炸时间: {t_blast1:.1f} s")
+        print(f"1爆炸位置: ({blast_position1[0]:.1f}, {blast_position1[1]:.1f}, {blast_position1[2]:.1f})")
+        print(f"烟幕弹2投放时间: {t_drop2:.1f} s")
+        print(f"烟幕弹2爆炸时间: {t_blast2:.1f} s")
+        print(f"2爆炸位置: ({blast_position2[0]:.1f}, {blast_position2[1]:.1f}, {blast_position2[2]:.1f})")
+        print(f"烟幕弹3投放时间: {t_drop3:.1f} s")
+        print(f"烟幕弹3爆炸时间: {t_blast3:.1f} s")
+        print(f"3爆炸位置: ({blast_position3[0]:.1f}, {blast_position3[1]:.1f}, {blast_position3[2]:.1f})")
+        print(f"导弹到达假目标的时间: {t_missile_to_target:.2f} s")
+        print(f"有效遮蔽持续时间: {total_effective_time:.3f} 秒")
 
-        # Detailed analysis of key time points
-        print(f"\n=== Detailed Analysis of Key Time Points ===")
+        # 关键时间点的详细分析
+        print(f"\n=== 关键时间点的详细分析 ===")
         for t_check in [0, 1, 2, 3, 4, 5]:
-            if t_check <= min(effective_duration, t_missile_to_target - t_blast):
-                t_missile_check = t_blast + t_check
+            if t_check <= min(effective_duration, t_missile_to_target - t_blast1 - t_blast2 - t_blast3):
+                t_missile_check = t_blast1 + t_blast2 + t_blast3 + t_check
                 pos_missile = missile_position(t_missile_check)
-                pos_smoke = smoke_position(t_check)
+                pos_smoke1 = smoke1_position(t_check)
+                pos_smoke2 = smoke2_position(t_check)
+                pos_smoke3 = smoke3_position(t_check)
                 
                 missile_to_target_direction = real_target - pos_missile
                 missile_to_target_direction = missile_to_target_direction / np.linalg.norm(missile_to_target_direction)
-                distance = distance_point_to_line(pos_smoke, pos_missile, missile_to_target_direction)
+                distance1 = distance_point_to_line(pos_smoke1, pos_missile, missile_to_target_direction)
+                distance2 = distance_point_to_line(pos_smoke2, pos_missile, missile_to_target_direction)
+                distance3 = distance_point_to_line(pos_smoke3, pos_missile, missile_to_target_direction)
                 
-                is_between = is_smoke_between(pos_missile, pos_smoke, real_target)
-                direct_distance = np.linalg.norm(pos_missile - pos_smoke)
+                is_between1 = is_smoke1_between(pos_missile, pos_smoke1, real_target)
+                is_between2 = is_smoke2_between(pos_missile, pos_smoke2, real_target)
+                is_between3 = is_smoke3_between(pos_missile, pos_smoke3, real_target)
+                direct_distance1 = np.linalg.norm(pos_missile - pos_smoke1)
+                direct_distance2 = np.linalg.norm(pos_missile - pos_smoke2)
+                direct_distance3 = np.linalg.norm(pos_missile - pos_smoke3)
                 
-                missile_to_smoke = pos_smoke - pos_missile
+                missile_to_smoke1 = pos_smoke1 - pos_missile
+                missile_to_smoke2 = pos_smoke2 - pos_missile
+                missile_to_smoke3 = pos_smoke3 - pos_missile
                 missile_to_target = real_target - pos_missile
-                dot_product = np.dot(missile_to_smoke, missile_to_target)
-                angle_deg = np.degrees(np.arccos(dot_product / (np.linalg.norm(missile_to_smoke) * np.linalg.norm(missile_to_target))))
+                dot_product1 = np.dot(missile_to_smoke1, missile_to_target)
+                dot_product2 = np.dot(missile_to_smoke2, missile_to_target)
+                dot_product3 = np.dot(missile_to_smoke3, missile_to_target)
+                angle_deg1 = np.degrees(np.arccos(dot_product1 / (np.linalg.norm(missile_to_smoke1) * np.linalg.norm(missile_to_target))))
+                angle_deg2 = np.degrees(np.arccos(dot_product2 / (np.linalg.norm(missile_to_smoke2) * np.linalg.norm(missile_to_target))))
+                angle_deg3 = np.degrees(np.arccos(dot_product3 / (np.linalg.norm(missile_to_smoke3) * np.linalg.norm(missile_to_target))))
                 
-                print(f"{t_check}s after blast:")
-                print(f"  Missile position: {pos_missile}")
-                print(f"  Cloud position: {pos_smoke}")
-                print(f"  Distance to LOS: {distance:.2f}m")
-                print(f"  Direct distance: {direct_distance:.2f}m")
-                print(f"  Smoke between missile and target: {'Yes' if is_between else 'No'}")
-                print(f"  Missile-Smoke-Target angle: {angle_deg:.1f}°")
-                print(f"  Inside cloud: {'Yes' if direct_distance <= effective_radius else 'No'}")
-                print(f"  Effective concealment: {'Yes' if (distance <= effective_radius and is_between) or direct_distance <= effective_radius else 'No'}")
+                print(f"{t_check}s 后爆炸:")
+                print(f"  导弹位置: {pos_missile}")
+                print(f"  云1位置: {pos_smoke1}")
+                print(f"  云2位置: {pos_smoke2}")
+                print(f"  云3位置: {pos_smoke3}")
+                print(f"  到视线1距离: {distance1:.2f}m")
+                print(f"  到视线2距离: {distance2:.2f}m")
+                print(f"  到视线3距离: {distance3:.2f}m")
+                print(f"  直接距离1: {direct_distance1:.2f}m")
+                print(f"  直接距离2: {direct_distance2:.2f}m")
+                print(f"  直接距离3: {direct_distance3:.2f}m")
+                print(f"  烟幕在导弹和目标之间: {'是' if is_between else '否'}")
+                print(f"  导弹-烟幕1-目标角度: {angle_deg1:.1f}°")
+                print(f"  导弹-烟幕2-目标角度: {angle_deg2:.1f}°")
+                print(f"  导弹-烟幕3-目标角度: {angle_deg3:.1f}°")
+                print(f"  在云1内: {'是' if direct_distance1 <= effective_radius else '否'}")
+                print(f"  在云2内: {'是' if direct_distance2 <= effective_radius else '否'}")
+                print(f"  在云3内: {'是' if direct_distance3 <= effective_radius else '否'}")
+                print(f"  有效遮蔽: {'是' if ((distance1 <= effective_radius and is_between1) or direct_distance1 <= effective_radius) or ((distance2 <= effective_radius and is_between2) or direct_distance2 <= effective_radius) or ((distance3 <= effective_radius and is_between3) or direct_distance3 <= effective_radius) else '否'}")
 
     if visualize:
-        # Visualization
+        # 可视化
         fig = plt.figure(figsize=(15, 10))
         ax = fig.add_subplot(111, projection='3d')
 
-        # Plot trajectories
+        # 绘制轨迹
         missile_times = np.linspace(0, t_missile_to_target, 100)
         missile_traj = np.array([missile_position(t) for t in missile_times])
-        ax.plot(missile_traj[:, 0], missile_traj[:, 1], missile_traj[:, 2], 'r-', label='Missile trajectory', linewidth=2)
+        ax.plot(missile_traj[:, 0], missile_traj[:, 1], missile_traj[:, 2], 'r-', label='导弹轨迹', linewidth=2)
 
-        # Plot smoke descent trajectory
-        smoke_times = np.linspace(0, min(effective_duration, t_missile_to_target - t_blast), 50)
-        smoke_traj = np.array([smoke_position(t) for t in smoke_times])
-        ax.plot(smoke_traj[:, 0], smoke_traj[:, 1], smoke_traj[:, 2], 'b-', label='Smoke descent trajectory', linewidth=2)
+        # 绘制烟幕1下降轨迹
+        smoke1_times = np.linspace(0, min(effective_duration, t_missile_to_target - t_blast1), 50)
+        smoke1_traj = np.array([smoke1_position(t) for t in smoke1_times])
+        ax.plot(smoke1_traj[:, 0], smoke1_traj[:, 1], smoke1_traj[:, 2], 'b-', label='烟幕下降轨迹', linewidth=2)
+        # 绘制烟幕2下降轨迹
+        smoke2_times = np.linspace(0, min(effective_duration, t_missile_to_target - t_blast2), 50)
+        smoke2_traj = np.array([smoke2_position(t) for t in smoke2_times])
+        ax.plot(smoke2_traj[:, 0], smoke2_traj[:, 1], smoke2_traj[:, 2], 'g-', label='烟幕下降轨迹', linewidth=2)
+        # 绘制烟幕3下降轨迹 
+        smoke3_times = np.linspace(0, min(effective_duration, t_missile_to_target - t_blast3), 50)
+        smoke3_traj = np.array([smoke3_position(t) for t in smoke3_times])
+        ax.plot(smoke3_traj[:, 0], smoke3_traj[:, 1], smoke3_traj[:, 2], 'm-', label='烟幕下降轨迹', linewidth=2)
 
-        # Mark key points
-        ax.scatter(*fake_target, color='red', s=200, label='Fake target', marker='x')
-        ax.scatter(*real_target, color='blue', s=200, label='Real target', marker='o')
-        ax.scatter(*M1_start, color='orange', s=100, label='Missile start')
-        ax.scatter(*blast_position, color='green', s=100, label='Blast point')
+        # 标记关键点
+        ax.scatter(*fake_target, color='red', s=200, label='假目标', marker='x')
+        ax.scatter(*real_target, color='blue', s=200, label='真实目标', marker='o')
+        ax.scatter(*M1_start, color='orange', s=100, label='导弹起点')
+        ax.scatter(*blast_position1, color='green', s=100, label='爆炸点')
+        ax.scatter(*blast_position2, color='purple', s=100, label='爆炸点')
+        ax.scatter(*blast_position3, color='cyan', s=100, label='爆炸点')
 
-        # Set view and labels
+        # 设置视图和标签
         ax.view_init(elev=20, azim=45)
         ax.set_xlabel('X (m)')
         ax.set_ylabel('Y (m)')
         ax.set_zlabel('Z (m)')
-        ax.set_title(f'Smoke screen interference analysis for missile M1\nEffective concealment time: {total_effective_time:.3f}s')
+        ax.set_title(f'导弹M1的烟幕干扰分析\n有效遮蔽时间: {total_effective_time:.3f}s')
         ax.legend()
         ax.grid(True)
 
@@ -259,20 +425,20 @@ def calculate_smoke_obscuration(drone_direction, drone_speed, drop_time, blast_d
     return total_effective_time
 
 
-effective_time = calculate_smoke_obscuration(
-        drone_direction=[-0.5, -0.5, 0],  # towards fake target
-        drone_speed=110,
-        drop_time=20,
-        blast_delay=7,
-        visualize=True,
-        verbose=False
-    )
+# effective_time = calculate_smoke_obscuration(
+#         drone_direction=[-0.5, -0.5, 0],  # towards fake target
+#         drone_speed=110,
+#         drop_time=20,
+#         blast_delay=7,
+#         visualize=True,
+#         verbose=False
+#     )
 import numpy as np
 import tqdm
 import random
 
 
-# Custom genetic algorithm implementation
+# 自定义遗传算法实现
 class GeneticAlgorithm:
     def __init__(self, pop_size=100, crossover_rate=0.7, mutation_rate=0.2, generations=50):
         self.pop_size = pop_size
@@ -280,51 +446,67 @@ class GeneticAlgorithm:
         self.mutation_rate = mutation_rate
         self.generations = generations
         
-        # Parameter ranges
+        # 参数范围
         self.param_ranges = [
-            (40, 50),   # i range
-            (80, 120),  # j range
-            (5, 20),    # q range
-            (0, 15)     # s range
+            (40, 50),   # i1 范围
+            (80, 120),  # j1 范围
+            (5, 20),    # q1 范围
+            (0, 15),    # s1 范围
+            (40, 50),   # i2 范围
+            (80, 120),  # j2 范围
+            (5, 20),    # q2 范围
+            (0, 15),    # s2 范围
+            (40, 50),   # i3 范围
+            (80, 120),  # j3 范围
+            (5, 20),    # q3 范围
+            (0, 15)     # s3 范围
         ]
     
     def create_individual(self):
-        # Create an individual (set of parameters)
+        # 创建个体（参数集）
         individual = []
         for param_range in self.param_ranges:
             individual.append(random.randint(param_range[0], param_range[1] - 1))
         return individual
     
     def create_population(self):
-        # Create initial population
+        # 创建初始种群
         return [self.create_individual() for _ in range(self.pop_size)]
     
     def evaluate(self, individual):
-        # Evaluate individual's fitness
-        i, j, q, s = individual
+        # 评估个体适应度
+        i1, j1, q1, s1, i2, j2, q2, s2, i3, j3, q3, s3 = individual
         result = calculate_smoke_obscuration(
-            drone_direction=[np.cos(i/10), np.sin(i/10), 0],
-            drone_speed=j,
-            drop_time=q,
-            blast_delay=s,
+            drone_direction1=[np.cos(i1/10), np.sin(i1/10), 0],
+            drone_speed1=j1,
+            drop_time1=q1,
+            blast_delay1=s1,
+            drone_direction2=[np.cos(i2/10), np.sin(i2/10), 0],
+            drone_speed2=j2,
+            drop_time2=q2,
+            blast_delay2=s2,
+            drone_direction3=[np.cos(i3/10), np.sin(i3/10), 0],
+            drone_speed3=j3,
+            drop_time3=q3,
+            blast_delay3=s3,
             visualize=False,
-            verbose=False
+            verbose=True
         )
-        return result  # Return fitness value
+        return result  # 返回适应度值
     
     def select(self, population, fitnesses):
-        # Tournament selection
+        # 锦标赛选择
         selected = []
         for _ in range(self.pop_size):
-            # Randomly select 3 individuals for competition
+            # 随机选择3个个体进行竞争
             candidates = random.sample(list(zip(population, fitnesses)), 3)
-            # Select the one with highest fitness
+            # 选择适应度最高的个体
             winner = max(candidates, key=lambda x: x[1])[0]
             selected.append(winner)
         return selected
     
     def crossover(self, parent1, parent2):
-        # Single-point crossover
+        # 单点交叉
         if random.random() < self.crossover_rate:
             point = random.randint(1, len(parent1) - 1)
             child1 = parent1[:point] + parent2[point:]
@@ -333,7 +515,7 @@ class GeneticAlgorithm:
         return parent1, parent2
     
     def mutate(self, individual):
-        # Uniform mutation
+        # 均匀变异
         mutated = individual.copy()
         for i in range(len(mutated)):
             if random.random() < self.mutation_rate:
@@ -342,26 +524,26 @@ class GeneticAlgorithm:
         return mutated
     
     def run(self):
-        # Create initial population
+        # 创建初始种群
         population = self.create_population()
         
-        # Store all valid solutions
+        # 存储所有有效解
         solutions = []
         
-        print("Starting genetic algorithm optimization...")
+        print("开始遗传算法优化...")
         for gen in tqdm.tqdm(range(self.generations)):
-            # Evaluate all individuals in population
+            # 评估种群中所有个体
             fitnesses = [self.evaluate(ind) for ind in population]
             
-            # Record valid solutions
+            # 记录有效解
             for i, fit in enumerate(fitnesses):
                 if fit != 0:
                     solutions.append((population[i], fit))
             
-            # Selection
+            # 选择
             selected = self.select(population, fitnesses)
             
-            # Crossover and mutation
+            # 交叉和变异
             next_population = []
             for i in range(0, self.pop_size, 2):
                 parent1 = selected[i]
@@ -373,10 +555,10 @@ class GeneticAlgorithm:
                 
                 next_population.extend([child1, child2])
             
-            # Ensure population size remains constant
+            # 确保种群大小保持不变
             population = next_population[:self.pop_size]
         
-        # Remove duplicate solutions
+        # 移除重复解
         unique_solutions = []
         seen = set()
         for sol, fit in solutions:
@@ -388,17 +570,17 @@ class GeneticAlgorithm:
         return unique_solutions
 
 def main():
-    # Create genetic algorithm instance and run
+    # 创建遗传算法实例并运行
     ga = GeneticAlgorithm(pop_size=100, generations=50)
     solutions = ga.run()
     
-    # Output results
+    # 输出结果
     if solutions:
-        print(f"\nFound {len(solutions)} valid solutions:")
+        print(f"\n找到 {len(solutions)} 个有效解:")
         for i, (sol, fit) in enumerate(solutions, 1):
-            print(f"Solution {i}: i={sol[0]}, j={sol[1]}, q={sol[2]}, s={sol[3]}, Result={fit}")
+            print(f"解 {i}: i1={sol[0]}, j1={sol[1]}, q1={sol[2]}, s1={sol[3]}, i2={sol[4]}, j2={sol[5]}, q2={sol[6]}, s2={sol[7]},i3={sol[8]}, j3={sol[9]}, q3={sol[10]}, s3={sol[11]},结果={fit}")
     else:
-        print("\nNo valid solutions found")
+        print("\n未找到有效解")
 
 if __name__ == "__main__":
     main()
