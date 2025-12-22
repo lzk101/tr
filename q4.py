@@ -448,17 +448,17 @@ class GeneticAlgorithm:
         
         # 参数范围
         self.param_ranges = [
-            (40, 50),   # i1 范围
+            (0, 3600),   # i1 范围
             (80, 120),  # j1 范围
-            (5, 20),    # q1 范围
+            (0, 15),    # q1 范围
             (0, 15),    # s1 范围
-            (40, 50),   # i2 范围
+            (0, 3600),   # i2 范围
             (80, 120),  # j2 范围
-            (5, 20),    # q2 范围
+            (0, 15),    # q2 范围
             (0, 15),    # s2 范围
-            (40, 50),   # i3 范围
+            (0, 3600),   # i3 范围
             (80, 120),  # j3 范围
-            (5, 20),    # q3 范围
+            (0, 15),    # q3 范围
             (0, 15)     # s3 范围
         ]
     
@@ -477,15 +477,15 @@ class GeneticAlgorithm:
         # 评估个体适应度
         i1, j1, q1, s1, i2, j2, q2, s2, i3, j3, q3, s3 = individual
         result = calculate_smoke_obscuration(
-            drone_direction1=[np.cos(i1/10), np.sin(i1/10), 0],
+            drone_direction1=[np.cos(np.radians(i1/10)), np.sin(np.radians(i1/10)), 0],
             drone_speed1=j1,
             drop_time1=q1,
             blast_delay1=s1,
-            drone_direction2=[np.cos(i2/10), np.sin(i2/10), 0],
+            drone_direction2=[np.cos(np.radians(i2/10)), np.sin(np.radians(i2/10)), 0],
             drone_speed2=j2,
             drop_time2=q2,
             blast_delay2=s2,
-            drone_direction3=[np.cos(i3/10), np.sin(i3/10), 0],
+            drone_direction3=[np.cos(np.radians(i3/10)), np.sin(np.radians(i3/10)), 0],
             drone_speed3=j3,
             drop_time3=q3,
             blast_delay3=s3,
