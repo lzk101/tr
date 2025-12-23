@@ -423,26 +423,6 @@ def calculate_smoke_obscuration(drone_direction, drone_speed, drop_time, blast_d
 
     return total_effective_time
 
-# #             drone_direction=np.array([[np.cos(i1/10), np.sin(i1/10), 0], 
-#                                       [np.cos(i2/10), np.sin(i2/10), 0], 
-#                                       [np.cos(i3/10), np.sin(i3/10), 0], 
-#                                       [np.cos(i4/10), np.sin(i4/10), 0], 
-#                                       [np.cos(i5/10), np.sin(i5/10), 0]]),
-#             drone_speed=np.array([[j1, j1, j1],
-#                                   [j2, j2, j2],
-#                                   [j3, j3, j3],
-#                                   [j4, j4, j4],
-#                                   [j5, j5, j5]]),
-#             drop_time=np.array([[q11, q12, q13], 
-#                                 [q21, q22, q23], 
-#                                 [q31, q32, q33], 
-#                                 [q41, q42, q43], 
-#                                 [q51, q52, q53]]),
-#             blast_delay=np.array([[s11, s12, s13], 
-#                                   [s21, s22, s23], 
-#                                   [s31, s32, s33], 
-#                                   [s41, s42, s43], 
-#                                   [s51, s52, s53]]),
 effective_time = calculate_smoke_obscuration(
         drone_direction = np.array([[-0.5, -0.5, 0], 
                                     [-0.5, -0.5, 0], 
@@ -643,18 +623,27 @@ def main():
     # 创建遗传算法实例并运行
     ga = GeneticAlgorithm(pop_size=100, generations=50)
     solutions = ga.run()
-    
-    # 输出结果
+    # 输出并选择最优解
     if solutions:
-        print(f"\n找到了 {len(solutions)} 个满足条件的解:")
-        for i, (sol, fit) in enumerate(solutions, 1):
-            print(f"解 {i}: ")
-            print(f"i1={sol[0]},    j1={sol[5]},    q11={sol[10]},  s11={sol[11]},  q12={sol[12]},  s12={sol[13]},  q13={sol[14]},  s13={sol[15]}, ")
-            print(f"i2={sol[1]},    j2={sol[6]},    q21={sol[16]},  s21={sol[17]},  q22={sol[18]},  s22={sol[19]},  q23={sol[20]},  s23={sol[21]}, ")
-            print(f"i3={sol[2]},    j3={sol[7]},    q31={sol[22]},  s31={sol[23]},  q32={sol[24]},  s32={sol[25]},  q33={sol[26]},  s33={sol[27]}, ")
-            print(f"i4={sol[3]},    j4={sol[8]},    q41={sol[28]},  s41={sol[29]},  q42={sol[30]},  s42={sol[31]},  q43={sol[32]},  s43={sol[33]}, ")
-            print(f"i5={sol[4]},    j5={sol[9]},    q51={sol[34]},  s51={sol[35]},  q52={sol[36]},  s52={sol[37]},  q53={sol[38]},  s53={sol[39]}, ")
-            print(f"结果={fit}")
+        print(f"\n找到了 {len(solutions)} 个满足条件的候选解（去重后）.")
+
+        # 按适应度（假设值越大越好）排序，选择前 N 个最优解
+        solutions_sorted = sorted(solutions, key=lambda x: x[1], reverse=True)
+        # solutions_sorted = heapq.nlargest(top_n, solutions, key=lambda x: x[1])
+        top_n = min(5, len(solutions_sorted))
+        print(f"\n前 {top_n} 个最优解:")
+        for rank, (sol, fit) in enumerate(solutions_sorted[:top_n], 1):
+            print(f"  排名 {rank}: 适应度={fit:.3f}")
+        
+        # 打印最优解的详细参数
+        best_sol, best_fit = solutions_sorted[0]
+        print("\n最优解详细参数:")
+        print(f"i1={best_sol[0]},    j1={best_sol[5]},    q11={best_sol[10]},  s11={best_sol[11]},  q12={best_sol[12]},  s12={best_sol[13]},  q13={best_sol[14]},  s13={best_sol[15]}")
+        print(f"i2={best_sol[1]},    j2={best_sol[6]},    q21={best_sol[16]},  s21={best_sol[17]},  q22={best_sol[18]},  s22={best_sol[19]},  q23={best_sol[20]},  s23={best_sol[21]}")
+        print(f"i3={best_sol[2]},    j3={best_sol[7]},    q31={best_sol[22]},  s31={best_sol[23]},  q32={best_sol[24]},  s32={best_sol[25]},  q33={best_sol[26]},  s33={best_sol[27]}")
+        print(f"i4={best_sol[3]},    j4={best_sol[8]},    q41={best_sol[28]},  s41={best_sol[29]},  q42={best_sol[30]},  s42={best_sol[31]},  q43={best_sol[32]},  s43={best_sol[33]}")
+        print(f"i5={best_sol[4]},    j5={best_sol[9]},    q51={best_sol[34]},  s51={best_sol[35]},  q52={best_sol[36]},  s52={best_sol[37]},  q53={best_sol[38]},  s53={best_sol[39]}")
+        print(f"适应度={best_fit}\n")
     else:
         print("\n未找到满足条件的解")
 

@@ -396,7 +396,7 @@ class GeneticAlgorithm:
         if random.random() < self.crossover_rate:
             point = random.randint(1, len(parent1) - 1)
             child1 = parent1[:point] + parent2[point:]
-            child2 = parent2[:point] + parent1[:point]
+            child2 = parent2[:point] + parent1[point:]
             return child1, child2
         return parent1, parent2
 
@@ -460,21 +460,31 @@ def main():
     # Create GA instance and run
     ga = GeneticAlgorithm(pop_size=100, generations=50)
     solutions = ga.run()
-
-    # Output results
+    # Output and select best solutions
     if solutions:
-        print(f"\nFound {len(solutions)} valid solutions:")
-        for i, (sol, fit) in enumerate(solutions, 1):
-            print(f"Solution {i}:")
-            print(f"i1={sol[0]},    j1={sol[5]},    q11={sol[10]},  s11={sol[11]},  q12={sol[12]},  s12={sol[13]},  q13={sol[14]},  s13={sol[15]}, ")
-            print(f"i2={sol[1]},    j2={sol[6]},    q21={sol[16]},  s21={sol[17]},  q22={sol[18]},  s22={sol[19]},  q23={sol[20]},  s23={sol[21]}, ")
-            print(f"i3={sol[2]},    j3={sol[7]},    q31={sol[22]},  s31={sol[23]},  q32={sol[24]},  s32={sol[25]},  q33={sol[26]},  s33={sol[27]}, ")
-            print(f"i4={sol[3]},    j4={sol[8]},    q41={sol[28]},  s41={sol[29]},  q42={sol[30]},  s42={sol[31]},  q43={sol[32]},  s43={sol[33]}, ")
-            print(f"i5={sol[4]},    j5={sol[9]},    q51={sol[34]},  s51={sol[35]},  q52={sol[36]},  s52={sol[37]},  q53={sol[38]},  s53={sol[39]}, ")
-            print(f"result={fit}")
+        print(f"\nFound {len(solutions)} candidate solutions (deduplicated).")
+
+        # Sort by fitness (higher is better) and select top N solutions
+        solutions_sorted = sorted(solutions, key=lambda x: x[1], reverse=True)
+        # solutions_sorted = heapq.nlargest(top_n, solutions, key=lambda x: x[1])
+        top_n = min(5, len(solutions_sorted))
+        print(f"\nTop {top_n} solutions:")
+        for rank, (sol, fit) in enumerate(solutions_sorted[:top_n], 1):
+            print(f"  Rank {rank}: fitness={fit:.3f}")
+        
+        # Print best solution details
+        best_sol, best_fit = solutions_sorted[0]
+        print("\nBest solution details:")
+        print(f"i1={best_sol[0]},    j1={best_sol[5]},    q11={best_sol[10]},  s11={best_sol[11]},  q12={best_sol[12]},  s12={best_sol[13]},  q13={best_sol[14]},  s13={best_sol[15]}")
+        print(f"i2={best_sol[1]},    j2={best_sol[6]},    q21={best_sol[16]},  s21={best_sol[17]},  q22={best_sol[18]},  s22={best_sol[19]},  q23={best_sol[20]},  s23={best_sol[21]}")
+        print(f"i3={best_sol[2]},    j3={best_sol[7]},    q31={best_sol[22]},  s31={best_sol[23]},  q32={best_sol[24]},  s32={best_sol[25]},  q33={best_sol[26]},  s33={best_sol[27]}")
+        print(f"i4={best_sol[3]},    j4={best_sol[8]},    q41={best_sol[28]},  s41={best_sol[29]},  q42={best_sol[30]},  s42={best_sol[31]},  q43={best_sol[32]},  s43={best_sol[33]}")
+        print(f"i5={best_sol[4]},    j5={best_sol[9]},    q51={best_sol[34]},  s51={best_sol[35]},  q52={best_sol[36]},  s52={best_sol[37]},  q53={best_sol[38]},  s53={best_sol[39]}")
+        print(f"fitness={best_fit}\n")
     else:
         print("\nNo valid solutions found")
 
 if __name__ == "__main__":
     main()
+
 
