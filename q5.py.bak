@@ -1,15 +1,13 @@
 import numpy as np
 from scipy.optimize import linear_sum_assignment
 
-# 示例：导弹位置与无人机位置（已注释，供参考）
-# 导弹示例：
+# 定义导弹位置和飞行方向（指向原点）
 # missiles = {
 #     'M1': np.array([20000, 0, 2000]),
 #     'M2': np.array([19000, 600, 2100]),
 #     'M3': np.array([18000, -600, 1900])
 # }
 
-# 无人机示例：
 # drones = {
 #     'FY1': np.array([17800, 0, 1800]),
 #     'FY2': np.array([12000, 1400, 1400]),
@@ -19,19 +17,14 @@ from scipy.optimize import linear_sum_assignment
 # }
 
 # # 原点（假目标）
-# 原点（示例）：
 # origin = np.array([0, 0, 0])
 
-# 示例函数：计算点到直线的距离（已注释）
 # def distance_to_line(point, line_point, direction):
 #     """
 #     计算点到直线的距离
-#     参数:
-#       point: 无人机位置
-#       line_point: 导弹位置（直线上一点）
-#       direction: 直线方向向量（指向原点）
-#     返回:
-#       distance: 点到直线的距离
+#     point: 无人机位置
+#     line_point: 导弹位置（直线上一点）
+#     direction: 直线方向向量（指向原点）
 #     """
 #     # 计算向量
 #     vec_to_point = point - line_point
@@ -81,9 +74,9 @@ from scipy.optimize import linear_sum_assignment
 # for m in missile_names:
 #     direction = origin - missiles[m]
 #     print(f"{m}: {direction} (长度: {np.linalg.norm(direction):.2f} m)")
-import numpy as np
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
+# import numpy as np
+# import matplotlib.pyplot as plt
+# from mpl_toolkits.mplot3d import Axes3D
 
 def calculate_smoke_obscuration(drone_direction, drone_speed, drop_time, blast_delay, 
                                visualize=False, verbose=False):
@@ -113,6 +106,19 @@ def calculate_smoke_obscuration(drone_direction, drone_speed, drop_time, blast_d
     # 目标位置
     fake_target = np.array([0, 0, 0])
     real_target = np.array([0, 200, 0])
+# missiles = {
+#     'M1': np.array([20000, 0, 2000]),
+#     'M2': np.array([19000, 600, 2100]),
+#     'M3': np.array([18000, -600, 1900])
+# }
+
+# drones = {
+#     'FY1': np.array([17800, 0, 1800]),
+#     'FY2': np.array([12000, 1400, 1400]),
+#     'FY3': np.array([6000, -3000, 700]),
+#     'FY4': np.array([11000, 2000, 1800]),
+#     'FY5': np.array([13000, -2000, 1300])
+# }
     # 导弹M1初始位置
     M_start = np.array([[20000, 0, 2000],
                         [19000, 600, 2100],
@@ -232,7 +238,7 @@ def calculate_smoke_obscuration(drone_direction, drone_speed, drop_time, blast_d
         return np.array([blast_position[Dnum, Snum, 0], blast_position[Dnum, Snum, 1], blast_position[Dnum, Snum, 2] - v_smoke_sink * t_smoke])#[Dnum, Snum]
 
     # 计算角度条件：判断烟幕是否在导弹和真目标之间
-    def is_smoke_between(Mnum, Dnum, Snum, missile_pos, smoke_pos, target_pos):
+    def is_smoke_between(Mnum, Dnum, Snum, missile_pos, smoke_pos, missile_prev_pos, smoke_prev_pos):
         missile_to_smoke = smoke_pos[Dnum, Snum] - missile_pos[Mnum, Dnum, Snum]
         missile_to_target = target_pos - missile_pos[Mnum, Dnum, Snum]
         
@@ -327,7 +333,7 @@ def calculate_smoke_obscuration(drone_direction, drone_speed, drop_time, blast_d
                     distance = distance_point_to_line(pos_smoke[j, k], pos_missile[i, j, k], missile_to_target_direction)
                     
                     # 检查角度条件
-                    is_between = is_smoke_between(i, j, k, pos_missile, pos_smoke, real_target)
+                    is_between = is_smoke_between(i, j, k, pos_missile, pos_smoke, prev_missile_pos, prev_smoke_pos)
                     
                     # 检查导弹是否穿过烟幕云团
                     is_through = is_missile_through_smoke(i, j, k, pos_missile, pos_smoke, prev_missile_pos, prev_smoke_pos)
@@ -359,19 +365,19 @@ def calculate_smoke_obscuration(drone_direction, drone_speed, drop_time, blast_d
     #             t_missile_check = t_blast + t_check
     #             pos_missile = missile_position(t_missile_check)
     #             pos_smoke = smoke_position(t_check)
-                
+                    
     #             missile_to_target_direction = real_target - pos_missile
     #             missile_to_target_direction = missile_to_target_direction / np.linalg.norm(missile_to_target_direction)
     #             distance = distance_point_to_line(pos_smoke, pos_missile, missile_to_target_direction)
-                
+                    
     #             is_between = is_smoke_between(pos_missile, pos_smoke, real_target)
     #             direct_distance = np.linalg.norm(pos_missile - pos_smoke)
-                
+                    
     #             missile_to_smoke = pos_smoke - pos_missile
     #             missile_to_target = real_target - pos_missile
     #             dot_product = np.dot(missile_to_smoke, missile_to_target)
     #             angle_deg = np.degrees(np.arccos(dot_product / (np.linalg.norm(missile_to_smoke) * np.linalg.norm(missile_to_target))))
-                
+                    
     #             print(f"起爆后 {t_check}s:")
     #             print(f"  导弹位置: {pos_missile}")
     #             print(f"  云团位置: {pos_smoke}")
@@ -405,9 +411,9 @@ def calculate_smoke_obscuration(drone_direction, drone_speed, drop_time, blast_d
 
     #     # 设置视角和标签
     #     ax.view_init(elev=20, azim=45)
-    #     ax.set_xlabel('X（米）')
-    #     ax.set_ylabel('Y（米）')
-    #     ax.set_zlabel('Z（米）')
+    #     ax.set_xlabel('X (m)')
+    #     ax.set_ylabel('Y (m)')
+    #     ax.set_zlabel('Z (m)')
     #     ax.set_title(f'烟幕干扰弹对导弹M1的遮蔽效果分析\n有效遮蔽时间: {total_effective_time:.3f}秒')
     #     ax.legend()
     #     ax.grid(True)
@@ -554,7 +560,7 @@ class GeneticAlgorithm:
         if random.random() < self.crossover_rate:
             point = random.randint(1, len(parent1) - 1)
             child1 = parent1[:point] + parent2[point:]
-            child2 = parent2[:point] + parent1[point:]
+            child2 = parent2[:point] + parent1[:point]
             return child1, child2
         return parent1, parent2
     
@@ -643,4 +649,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

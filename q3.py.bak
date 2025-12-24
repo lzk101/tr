@@ -7,7 +7,7 @@ from q2 import calculate_smoke_obscuration
 def calculate_multiple_smoke_obscuration(drone_direction, drone_speed, drop_times, blast_delays, 
                                         verbose=False):
     """
-    计算多枚烟幕弹对导弹M1的总有效遮蔽时间
+    Calculate the total effective obscuration time of multiple smoke bombs on missile M1
     """
     total_time = 0
     individual_times = []
@@ -25,15 +25,15 @@ def calculate_multiple_smoke_obscuration(drone_direction, drone_speed, drop_time
         total_time += eff_time
     
     if verbose:
-        print(f"\n=== 多弹药效果分析 ===")
+        print(f"\n=== Multiple bombs effect analysis ===")
         for i, (drop, delay, time) in enumerate(zip(drop_times, blast_delays, individual_times)):
-            print(f"弹 {i+1}: 投放={drop:.2f}s, 延迟={delay:.2f}s, 有效时长={time:.3f}s")
-        print(f"总有效遮蔽时间: {total_time:.3f}s")
+            print(f"Bomb {i+1}: Drop={drop:.2f}s, Delay={delay:.2f}s, Effective={time:.3f}s")
+        print(f"Total effective obscuration time: {total_time:.3f}s")
     
     return total_time
 
 def check_time_constraints(drop_times, min_interval=1.0):
-    """检查投放时间间隔约束"""
+    """Check drop time interval constraints"""
     if len(drop_times) <= 1:
         return True
     sorted_times = np.sort(drop_times)
@@ -41,7 +41,7 @@ def check_time_constraints(drop_times, min_interval=1.0):
     return np.all(intervals >= min_interval)
 
 def objective_multiple_bombs(params, num_bombs=3):
-    """多弹药目标函数（用于最小化，返回负的有效遮蔽时长）"""
+    """Multiple bombs objective function"""
     theta = params[0]
     s = params[1]
     
@@ -51,8 +51,8 @@ def objective_multiple_bombs(params, num_bombs=3):
     
     # Check time interval constraints
     if not check_time_constraints(drop_times):
-        # 投放时间间隔不满足约束，返回惩罚值
-        penalty = 100.0 + abs(np.random.normal(0, 10))
+        # Return a large penalty value, but ensure it's not fixed
+        penalty = 100.0 + abs(np.random.normal(0, 10))  # Add randomness to avoid local optima
         return penalty
     
     u = np.cos(theta)
@@ -68,11 +68,11 @@ def objective_multiple_bombs(params, num_bombs=3):
             verbose=False
         )
         
-        # 返回负的总有效时长以便最小化器工作
+        # Ensure positive return (minimize negative effective time)
         return -total_time
         
     except Exception as e:
-        print(f"计算错误: {e}")
+        print(f"Calculation error: {e}")
         return 100.0
 
 class MultipleBombsOptimizationTracker:
@@ -101,21 +101,21 @@ class MultipleBombsOptimizationTracker:
             blast_delays = [x[3 + 2*i] for i in range(self.num_bombs)]
             
             # Check if it's a valid solution (not a penalty value)
-            if f < 50:  # 认为小于50为有效解
-                print(f"迭代 {len(self.history)}: 当前 = {-f:.3f} 秒, 最佳 = {-self.best_value:.3f} 秒")
-                print(f"  角度: {np.degrees(theta):.1f}°, 速度: {s:.1f} m/s")
+            if f < 50:  # Assume less than 50 is a valid solution
+                print(f"Iteration {len(self.history)}: Current = {-f:.3f}s, Best = {-self.best_value:.3f}s")
+                print(f"  Theta: {np.degrees(theta):.1f}°, Speed: {s:.1f} m/s")
                 for i in range(self.num_bombs):
-                    print(f"  弹 {i+1}: 投放={drop_times[i]:.2f}s, 延迟={blast_delays[i]:.2f}s")
+                    print(f"  Bomb {i+1}: Drop={drop_times[i]:.2f}s, Delay={blast_delays[i]:.2f}s")
             else:
-                print(f"迭代 {len(self.history)}: 无效解（约束违反）")
+                print(f"Iteration {len(self.history)}: Invalid solution (constraint violation)")
 
-# 设置三弹优化
+# Set up 3-bomb optimization
 num_bombs = 3
 
-# 变量边界 - 基于单弹最优解调整，确保时间间隔
+# Variable bounds - adjusted based on single bomb optimal solution, ensure time intervals
 bounds = [
-    (3.12, 3.16),    # theta（基于单弹最优角度约 178.9° ≈ 3.124 rad）
-    (115, 125),      # 速度（基于单弹最优速度约 121.32 m/s）
+    (3.12, 3.16),    # theta (based on single bomb optimal angle 178.9° ≈ 3.124rad)
+    (115, 125),      # speed (based on single bomb optimal speed 121.32)
 ]
 
 # Add drop time and blast delay bounds for each bomb, ensure time intervals
@@ -123,7 +123,7 @@ for i in range(num_bombs):
     bounds.append((i * 1.5, i * 1.5 + 2.0))  # Ensure at least 1.5 second interval
     bounds.append((2, 5))                    # blast_delay
 
-# 基于单弹最优解设置初始参数，确保时间间隔
+# Set initial parameters based on single bomb optimal solution, ensure time intervals
 single_opt_theta = 3.124
 single_opt_speed = 121.32
 
@@ -131,11 +131,11 @@ single_opt_speed = 121.32
 initial_params = np.array([
     single_opt_theta,      # theta
     single_opt_speed,      # speed
-    # 弹 1：较早投放
+    # Bomb 1: earlier drop
     0.5, 3.0,
-    # 弹 2：中间时间投放（确保与弹1间隔 ≥1s）
+    # Bomb 2: medium time drop (ensure interval ≥1s with bomb 1)
     2.0, 3.5,
-    # 弹 3：较晚投放（确保与弹2间隔 ≥1s）
+    # Bomb 3: later drop (ensure interval ≥1s with bomb 2)
     3.5, 4.0
 ])
 
@@ -143,19 +143,19 @@ initial_params = np.array([
 tracker = MultipleBombsOptimizationTracker(num_bombs=num_bombs)
 
 # Test initial parameters
-print("测试初始参数...")
-print(f"基于单弹最优解: theta={np.degrees(single_opt_theta):.1f}°, 速度={single_opt_speed:.2f} m/s")
+print("Testing initial parameters...")
+print(f"Based on single bomb optimal solution: theta={np.degrees(single_opt_theta):.1f}°, speed={single_opt_speed:.2f} m/s")
 
 # Check initial parameters time intervals
 initial_drop_times = [initial_params[2], initial_params[4], initial_params[6]]
-print(f"初始投放时间: {initial_drop_times}")
-print(f"时间间隔检查: {check_time_constraints(initial_drop_times)}")
+print(f"Initial drop times: {initial_drop_times}")
+print(f"Time interval check: {check_time_constraints(initial_drop_times)}")
 
 initial_time = -objective_multiple_bombs(initial_params, num_bombs)
-print(f"初始三弹总有效遮蔽时间: {initial_time:.3f}s")
+print(f"Initial 3-bomb total effective time: {initial_time:.3f}s")
 
 # Show initial parameters detailed effect
-print("\n初始参数详细效果:")
+print("\nInitial parameters detailed effect:")
 calculate_multiple_smoke_obscuration(
     drone_direction=[np.cos(single_opt_theta), np.sin(single_opt_theta), 0],
     drone_speed=single_opt_speed,
@@ -165,7 +165,7 @@ calculate_multiple_smoke_obscuration(
 )
 
 # Simulated annealing optimization
-print("\n开始三弹模拟退火优化...")
+print("\nStarting 3-bomb simulated annealing optimization...")
 minimizer_kwargs = {
     "method": "L-BFGS-B", 
     "bounds": bounds,
@@ -193,31 +193,31 @@ if tracker.best_params is not None and tracker.best_value < 50:  # Ensure it's a
 else:
     best_params = initial_params
     best_time = initial_time
-    print("优化失败，使用初始参数")
+    print("Optimization failed, using initial parameters")
 
-print(f"\n=== 优化完成 ===")
-print(f"最佳总有效时间: {best_time:.3f}s")
+print(f"\n=== Optimization completed ===")
+print(f"Best total effective time: {best_time:.3f}s")
 
 theta = best_params[0]
 speed = best_params[1]
 drop_times = [best_params[2 + 2*i] for i in range(num_bombs)]
 blast_delays = [best_params[3 + 2*i] for i in range(num_bombs)]
 
-print(f"最佳方向角: {np.degrees(theta):.1f}°")
-print(f"最佳速度: {speed:.2f} m/s")
+print(f"Best direction angle: {np.degrees(theta):.1f}°")
+print(f"Best speed: {speed:.2f} m/s")
 for i in range(num_bombs):
-    print(f"弹 {i+1}: 投放时间={drop_times[i]:.3f}s, 起爆延迟={blast_delays[i]:.3f}s")
+    print(f"Bomb {i+1}: Drop time={drop_times[i]:.3f}s, Blast delay={blast_delays[i]:.3f}s")
 
 # Verify time interval constraints
-print(f"\n时间间隔检查:")
+print(f"\nTime interval check:")
 sorted_drop_times = np.sort(drop_times)
 intervals = np.diff(sorted_drop_times)
 for i, interval in enumerate(intervals):
-    status = "通过" if interval >= 1.0 else "不通过"
-    print(f"弹 {i+1} 与 弹 {i+2} 间隔: {interval:.3f}s {status}")
+    status = "OK" if interval >= 1.0 else "FAIL"
+    print(f"Bomb {i+1} and Bomb {i+2} interval: {interval:.3f}s {status}")
 
-# 验证最佳策略效果
-print("\n=== 最佳策略详细效果 ===")
+# Verify best strategy effect
+print("\n=== Best strategy detailed effect ===")
 final_time = calculate_multiple_smoke_obscuration(
     drone_direction=[np.cos(theta), np.sin(theta), 0],
     drone_speed=speed,
@@ -226,21 +226,21 @@ final_time = calculate_multiple_smoke_obscuration(
     verbose=True
 )
 
-# 计算单弹最优时长以作比较
+# Calculate single bomb optimal time for comparison
 single_bomb_time = calculate_smoke_obscuration(
     drone_direction=[np.cos(single_opt_theta), np.sin(single_opt_theta), 0],
     drone_speed=single_opt_speed,
-    drop_time=0.37,  # 单弹最优投放时间
-    blast_delay=3.48,  # 单弹最优起爆延迟
+    drop_time=0.37,  # Single bomb optimal drop time
+    blast_delay=3.48,  # Single bomb optimal blast delay
     verbose=False
 )
 
-print(f"\n=== 性能对比 ===")
-print(f"单弹最优时长: {single_bomb_time:.3f}s")
-print(f"三弹优化时长: {final_time:.3f}s")
-print(f"相对于单弹的提升: {final_time - single_bomb_time:.3f}s "
+print(f"\n=== Performance comparison ===")
+print(f"Single bomb optimal time: {single_bomb_time:.3f}s")
+print(f"3-bomb optimized time: {final_time:.3f}s")
+print(f"3-bomb improvement over single bomb: {final_time - single_bomb_time:.3f}s "
     f"({(final_time - single_bomb_time)/single_bomb_time*100:.1f}%)")
-print(f"相对于初始方案的提升: {final_time - initial_time:.3f}s "
+print(f"3-bomb improvement over initial: {final_time - initial_time:.3f}s "
     f"({(final_time - initial_time)/initial_time*100:.1f}%)")
 
 # Plot convergence curve (only valid solutions)
@@ -254,29 +254,29 @@ valid_best_history = [-tracker.best_history[i] for i in valid_indices]
 
 plt.subplot(1, 3, 1)
 if valid_iterations:
-    plt.plot(valid_iterations, valid_history, 'b-', alpha=0.7, label='当前值')
-    plt.plot(valid_iterations, valid_best_history, 'r-', linewidth=2, label='最优值')
-    plt.axhline(y=single_bomb_time, color='g', linestyle='--', label='单弹最优')
-    plt.xlabel('迭代次数')
-    plt.ylabel('总有效遮蔽时间（s）')
-    plt.title('三弹优化收敛曲线（有效解）')
+    plt.plot(valid_iterations, valid_history, 'b-', alpha=0.7, label='Current value')
+    plt.plot(valid_iterations, valid_best_history, 'r-', linewidth=2, label='Best value')
+    plt.axhline(y=single_bomb_time, color='g', linestyle='--', label='Single bomb optimal')
+    plt.xlabel('Iteration count')
+    plt.ylabel('Total effective obscuration time (s)')
+    plt.title('3-bomb optimization convergence curve (valid solutions)')
     plt.legend()
     plt.grid(True, alpha=0.3)
 else:
-    plt.text(0.5, 0.5, '无有效解', ha='center', va='center')
+    plt.text(0.5, 0.5, 'No valid solutions', ha='center', va='center')
 
 # Output final strategy
-print("\n=== 最终三弹投放策略 ===")
-print(f"无人机飞行方向: {np.degrees(theta):.1f}°")
-print(f"无人机飞行速度: {speed:.2f} m/s")
-print(f"方向向量: [{np.cos(theta):.4f}, {np.sin(theta):.4f}, 0.000]")
+print("\n=== Final 3-bomb deployment strategy ===")
+print(f"Drone flight direction: {np.degrees(theta):.1f}°")
+print(f"Drone flight speed: {speed:.2f} m/s")
+print(f"Direction vector: [{np.cos(theta):.4f}, {np.sin(theta):.4f}, 0.000]")
 
 for i in range(num_bombs):
     blast_time = drop_times[i] + blast_delays[i]
-    print(f"\n弹 {i+1}:")
-    print(f"  投放时间: {drop_times[i]:.3f} s（任务开始后）")
-    print(f"  起爆延迟: {blast_delays[i]:.3f} s")
-    print(f"  预计爆炸时间: {blast_time:.3f} s")
+    print(f"\nBomb {i+1}:")
+    print(f"  Drop time: {drop_times[i]:.3f} s after mission start")
+    print(f"  Blast delay: {blast_delays[i]:.3f} s")
+    print(f"  Estimated blast time: {blast_time:.3f} s")
 
 print(f"\nEstimated total effective obscuration time: {final_time:.3f} s")
 print(f"Improvement over single bomb strategy: {final_time - single_bomb_time:.3f} s "
@@ -297,7 +297,7 @@ plt.show()
 
 # Multi-stage optimization: coarse search first, then fine optimization
 
-# 可视化改进：显示有效解比率和参数变化趋势
+# Visualization improvement: display valid solution ratio and parameter change trends
 import numpy as np
 from scipy.optimize import basinhopping, differential_evolution
 import matplotlib.pyplot as plt
@@ -306,7 +306,7 @@ from matplotlib.ticker import MaxNLocator
 def calculate_multiple_smoke_obscuration(drone_direction, drone_speed, drop_times, blast_delays, 
                                         verbose=False):
     """
-    计算多枚烟幕弹对导弹 M1 的总有效遮蔽时间
+    Calculate the total effective obscuration time of multiple smoke bombs on missile M1
     """
     total_time = 0
     individual_times = []
@@ -324,10 +324,10 @@ def calculate_multiple_smoke_obscuration(drone_direction, drone_speed, drop_time
         total_time += eff_time
     
     if verbose:
-        print(f"\n=== 多弹药效果分析 ===")
+        print(f"\n=== Multiple bombs effect analysis ===")
         for i, (drop, delay, time) in enumerate(zip(drop_times, blast_delays, individual_times)):
-            print(f"弹 {i+1}: 投放={drop:.2f}s, 延迟={delay:.2f}s, 有效时长={time:.3f}s")
-        print(f"总有效遮蔽时间: {total_time:.3f}s")
+            print(f"Bomb {i+1}: Drop={drop:.2f}s, Delay={delay:.2f}s, Effective={time:.3f}s")
+        print(f"Total effective obscuration time: {total_time:.3f}s")
     
     return total_time
 
@@ -430,7 +430,7 @@ def adaptive_step_size(x, iteration, max_iterations):
     return base_step * decay_factor
 
 def custom_take_step(bounds, max_iterations):
-    "Custom step size generation function"
+    "Custom step size generation function"""
     def take_step(x):
         iteration = len(take_step.counter) if hasattr(take_step, 'counter') else 0
         step_size = adaptive_step_size(x, iteration, max_iterations)
@@ -457,7 +457,7 @@ def custom_take_step(bounds, max_iterations):
         for i in range(len(new_x)):
             new_x[i] = max(bounds[i][0], min(bounds[i][1], new_x[i]))
         
-        # 记录迭代计数
+        # Record iteration count
         if not hasattr(take_step, 'counter'):
             take_step.counter = []
         take_step.counter.append(1)
@@ -468,7 +468,7 @@ def custom_take_step(bounds, max_iterations):
 def hybrid_optimization(objective_func, initial_params, bounds, num_bombs=3, max_iterations=100):
     """Hybrid optimization strategy: genetic algorithm + simulated annealing"""
     
-    print("第一阶段：使用遗传算法进行全局搜索...")
+    print("First stage: using genetic algorithm for global search...")
     
     # Genetic algorithm for coarse search
     ga_result = differential_evolution(
@@ -483,12 +483,12 @@ def hybrid_optimization(objective_func, initial_params, bounds, num_bombs=3, max
         disp=True
     )
     
-    print(f"遗传算法结果: {-ga_result.fun:.3f} s")
+    print(f"Genetic algorithm result: {-ga_result.fun:.3f}s")
     
-    # 使用遗传算法结果作为模拟退火的初始点
+    # Use genetic algorithm result as initial point for simulated annealing
     sa_initial = ga_result.x
     
-    print("第二阶段：使用改进的模拟退火进行精细优化...")
+    print("Second stage: using improved simulated annealing for fine optimization...")
     
     # Create improved tracker
     tracker = AdvancedOptimizationTracker(num_bombs=num_bombs)
@@ -545,7 +545,7 @@ initial_params = np.array([
     5.0, 5.0     # Bomb 3 (2 seconds after Bomb 2)
 ])
 
-print("开始混合优化（遗传算法 + 模拟退火）...")
+print("Starting hybrid optimization...")
 result, tracker = hybrid_optimization(
     lambda x: objective_multiple_bombs(x, num_bombs),
     initial_params,
@@ -558,22 +558,22 @@ result, tracker = hybrid_optimization(
 if tracker.best_value < 50:  # Valid solution
     best_params = tracker.best_params
     best_time = -tracker.best_value
-    print(f"优化成功！最佳时间: {best_time:.3f}s")
+    print(f"Optimization successful! Best time: {best_time:.3f}s")
 else:
     best_params = initial_params
     best_time = -objective_multiple_bombs(initial_params, num_bombs)
-    print("优化未找到更优解，使用初始参数")
+    print("Optimization did not find better solution, using initial parameters")
 
 theta = best_params[0]
 speed = best_params[1]
 drop_times = [best_params[2 + 2*i] for i in range(num_bombs)]
 blast_delays = [best_params[3 + 2*i] for i in range(num_bombs)]
 
-print(f"\n=== 最终结果 ===")
-print(f"最佳方向角: {np.degrees(theta):.1f}°")
-print(f"最佳速度: {speed:.2f} m/s")
+print(f"\n=== Final results ===")
+print(f"Best direction angle: {np.degrees(theta):.1f}°")
+print(f"Best speed: {speed:.2f} m/s")
 for i in range(num_bombs):
-    print(f"弹 {i+1}: 投放={drop_times[i]:.3f}s，延迟={blast_delays[i]:.3f}s")
+    print(f"Bomb {i+1}: Drop={drop_times[i]:.3f}s, Delay={blast_delays[i]:.3f}s")
 
 # Verify time intervals
 sorted_times = np.sort(drop_times)
@@ -598,11 +598,11 @@ valid_mask = np.array(tracker.history) < 50
 valid_indices = np.where(valid_mask)[0]
 if len(valid_indices) > 0:
     plt.subplot(1, 3, 1)
-    plt.plot(valid_indices + 1, -np.array(tracker.history)[valid_indices], 'b-', alpha=0.7, label='当前值')
-    plt.plot(valid_indices + 1, -np.array(tracker.best_history)[valid_indices], 'r-', linewidth=2, label='最优值')
-    plt.xlabel('迭代次数')
-    plt.ylabel('有效遮蔽时间（s）')
-    plt.title('优化收敛曲线')
+    plt.plot(valid_indices + 1, -np.array(tracker.history)[valid_indices], 'b-', alpha=0.7, label='Current value')
+    plt.plot(valid_indices + 1, -np.array(tracker.best_history)[valid_indices], 'r-', linewidth=2, label='Best value')
+    plt.xlabel('Iteration count')
+    plt.ylabel('Effective obscuration time (s)')
+    plt.title('Optimization convergence curve')
     plt.legend()
     plt.grid(True)
 
@@ -610,11 +610,11 @@ if len(valid_indices) > 0:
 plt.subplot(1, 3, 2)
 theta_vals = [np.degrees(p[0]) for p in tracker.params_history]
 speed_vals = [p[1] for p in tracker.params_history]
-plt.plot(theta_vals, 'g-', alpha=0.7, label='角度（°）')
-plt.plot(speed_vals, 'b-', alpha=0.7, label='速度（m/s）')
-plt.xlabel('迭代次数')
-plt.ylabel('参数值')
-plt.title('主要参数变化')
+plt.plot(theta_vals, 'g-', alpha=0.7, label='Angle (°)')
+plt.plot(speed_vals, 'b-', alpha=0.7, label='Speed (m/s)')
+plt.xlabel('Iteration count')
+plt.ylabel('Parameter value')
+plt.title('Main parameter changes')
 plt.legend()
 plt.grid(True)
 
@@ -629,14 +629,13 @@ for i in range(len(tracker.history)):
     valid_ratios.append(valid_count / len(window) * 100)
 
 plt.plot(valid_ratios, 'm-', linewidth=2)
-plt.xlabel('迭代次数')
-plt.ylabel('有效解比率（%）')
-plt.title('有效解比率（滑动窗口）')
+plt.xlabel('Iteration count')
+plt.ylabel('Valid solution ratio (%)')
+plt.title('Valid solution ratio (sliding window)')
 plt.grid(True)
 plt.ylim(0, 100)
 
 plt.tight_layout()
 plt.show()
 
-print(f"\n最终总有效遮蔽时间: {final_time:.3f}s")
-
+print(f"\nFinal total effective obscuration time: {final_time:.3f}s")

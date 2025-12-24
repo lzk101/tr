@@ -510,7 +510,7 @@ class GeneticAlgorithm:
         if random.random() < self.crossover_rate:
             point = random.randint(1, len(parent1) - 1)
             child1 = parent1[:point] + parent2[point:]
-            child2 = parent2[:point] + parent1[point:]
+            child2 = parent2[:point] + parent1[:point]
             return child1, child2
         return parent1, parent2
     
@@ -541,56 +541,5 @@ class GeneticAlgorithm:
                     solutions.append((population[i], fit))
             
             # 选择
-            selected = self.select(population, fitnesses)
-            
-            # 交叉和变异
-            next_population = []
-            for i in range(0, self.pop_size, 2):
-                parent1 = selected[i]
-                parent2 = selected[i+1] if i+1 < self.pop_size else selected[0]
-                
-                child1, child2 = self.crossover(parent1, parent2)
-                child1 = self.mutate(child1)
-                child2 = self.mutate(child2)
-                
-                next_population.extend([child1, child2])
-            
-            # 确保种群大小保持不变
-            population = next_population[:self.pop_size]
-        
-        # 移除重复解
-        unique_solutions = []
-        seen = set()
-        for sol, fit in solutions:
-            key = tuple(sol)
-            if key not in seen:
-                seen.add(key)
-                unique_solutions.append((sol, fit))
-        
-        return unique_solutions
-
-def main():
-    # 创建遗传算法实例并运行
-    ga = GeneticAlgorithm(pop_size=100, generations=50)
-    solutions = ga.run()
-
-    if solutions:
-        print(f"\n找到 {len(solutions)} 个候选解（去重后）。")
-
-        # 按适应度排序（适应度越大越好），并选择前 N 个解
-        solutions_sorted = sorted(solutions, key=lambda x: x[1], reverse=True)
-        top_n = min(5, len(solutions_sorted))
-        print(f"\n前 {top_n} 个最优解:")
-        for rank, (sol, fit) in enumerate(solutions_sorted[:top_n], 1):
-            print(f"  排名 {rank}: 适应度={fit:.3f}")
-
-        # 打印最优解详细参数
-        best_sol, best_fit = solutions_sorted[0]
-        print("\n最优解详细参数:")
-        print(f"i1={best_sol[0]}, j1={best_sol[1]}, q1={best_sol[2]}, s1={best_sol[3]}, i2={best_sol[4]}, j2={best_sol[5]}, q2={best_sol[6]}, s2={best_sol[7]}, i3={best_sol[8]}, j3={best_sol[9]}, q3={best_sol[10]}, s3={best_sol[11]}, 适应度={best_fit}")
-    else:
-        print("\n未找到满足条件的解")
-
-if __name__ == "__main__":
-    main()
+            selected = self.select(population, fitnesses]
 

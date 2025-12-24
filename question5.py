@@ -290,7 +290,7 @@ import random
 
 # Custom genetic algorithm implementation
 class GeneticAlgorithm:
-    def __init__(self, pop_size=100, crossover_rate=0.7, mutation_rate=0.2, generations=50):
+    def __init__(self, pop_size=100, crossover_rate=0.7, mutation_rate=0.2, generations=200):
         self.pop_size = pop_size
         self.crossover_rate = crossover_rate
         self.mutation_rate = mutation_rate
@@ -458,7 +458,7 @@ class GeneticAlgorithm:
 
 def main():
     # Create GA instance and run
-    ga = GeneticAlgorithm(pop_size=100, generations=50)
+    ga = GeneticAlgorithm(pop_size=100, generations=200)
     solutions = ga.run()
     # Output and select best solutions
     if solutions:

@@ -7,25 +7,25 @@ import os
 from datetime import datetime
 from matplotlib.lines import Line2D
 
-# Configure fonts (prefer DejaVu Sans for broad glyph support)
+# 配置字体（优先使用 DejaVu Sans 以支持广泛字符）
 plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
 plt.rcParams['axes.unicode_minus'] = False
 
-# Create output directory
-output_dir = "battlefield_images"
+# 创建输出目录
+output_dir = "战场图片"
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
-# Generate timestamp for filenames
+# 生成文件名时间戳
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-# Create figure with two subplots
+# 创建包含两个子图的图形
 fig = plt.figure(figsize=(16, 8))
 
-# First subplot: panoramic view
+# 第一个子图：全景视图
 ax1 = fig.add_subplot(121, projection='3d')
 
-# Define coordinate data
+# 定义坐标数据
 fake_target = np.array([0, 0, 0])
 real_target = np.array([0, 200, 0])
 
@@ -43,7 +43,7 @@ drones = {
     'FY5': np.array([13000, -2000, 1300])
 }
 
-# Draw cylinder
+# 绘制圆柱体
 def draw_cylinder(ax, center, radius, height, color, alpha=0.6):
     circle_bottom = Circle((center[0], center[1]), radius, color=color, alpha=alpha)
     ax.add_patch(circle_bottom)
@@ -55,39 +55,39 @@ def draw_cylinder(ax, center, radius, height, color, alpha=0.6):
     
     return circle_bottom
 
-# Draw decoy target (red cylinder) - differentiated by height
+# 绘制诱饵目标（红色圆柱）——以高度区分
 fake_cylinder = draw_cylinder(ax1, fake_target, 10, 15, 'red', 0.9)
-ax1.text(fake_target[0], fake_target[1], fake_target[2] + 20, 'Decoy Target', 
+ax1.text(fake_target[0], fake_target[1], fake_target[2] + 20, '诱饵目标', 
     color='red', fontsize=14, ha='center', fontweight='bold', 
     bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.8))
 
-# Draw real target (blue cylinder) - differentiated by height
+# 绘制真实目标（蓝色圆柱）——以高度区分
 real_cylinder = draw_cylinder(ax1, real_target, 10, 20, 'blue', 0.9)
-ax1.text(real_target[0], real_target[1], real_target[2] + 25, 'Real Target', 
+ax1.text(real_target[0], real_target[1], real_target[2] + 25, '真实目标', 
     color='blue', fontsize=14, ha='center', fontweight='bold',
     bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.8))
 
-# Draw missiles (red triangles)
+# 绘制导弹（红色三角）
 for name, pos in missiles.items():
     ax1.scatter(pos[0], pos[1], pos[2], c='red', marker='^', s=300,
                edgecolors='black', linewidth=2)
-    # Adjust label position to be closer to the marker
+    # 调整标签位置，使其靠近标记
     label_offset = 500
     ax1.text(pos[0] + label_offset, pos[1] + label_offset, pos[2] + label_offset, name, 
             color='red', fontsize=13, fontweight='bold',
             bbox=dict(boxstyle="round,pad=0.2", facecolor="white", alpha=0.7))
 
-# Draw drones (green squares)
+# 绘制无人机（绿色正方形）
 for name, pos in drones.items():
     ax1.scatter(pos[0], pos[1], pos[2], c='green', marker='s', s=200,
                edgecolors='black', linewidth=1.5)
-    # Adjust label position to be closer to the marker
+    # 调整标签位置，使其靠近标记
     label_offset = 500
     ax1.text(pos[0] + label_offset, pos[1] + label_offset, pos[2] + label_offset, name, 
             color='green', fontsize=12, fontweight='bold',
             bbox=dict(boxstyle="round,pad=0.2", facecolor="white", alpha=0.7))
 
-# Draw missile flight direction arrows
+# 绘制导弹飞行方向箭头
 for name, pos in missiles.items():
     direction = fake_target - pos
     direction_norm = direction / np.linalg.norm(direction)
@@ -100,30 +100,30 @@ for name, pos in missiles.items():
               color='orange', arrow_length_ratio=0.25,
               linewidth=3, alpha=0.9)
 
-# Adjust view angle for ax1 and add a short legend text
+# 调整 ax1 视角并添加简短说明
 ax1.view_init(elev=20, azim=-60)
 ax1.text2D(0.02, 0.95, 
-          "Situation:\n"
-          "• Red cylinder: Decoy target\n"
-          "• Blue cylinder: Real target\n"
-          "• Red triangle: Missile\n"
-          "• Green square: Drone\n"
-          "• Orange arrow: Flight direction", 
+          "情景:\n"
+          "• 红色圆柱: 诱饵目标\n"
+          "• 蓝色圆柱: 真实目标\n"
+          "• 红色三角: 导弹\n"
+          "• 绿色正方: 无人机\n"
+          "• 橙色箭头: 飞行方向", 
           transform=ax1.transAxes, fontsize=10, verticalalignment='top',
           bbox=dict(boxstyle="round,pad=0.4", facecolor="lightyellow", 
                    alpha=0.8, edgecolor='gold'))
 
-# Second subplot: target area close-up
+# 第二个子图：目标区域放大
 ax2 = fig.add_subplot(122, projection='3d')
 
-# Draw target area close-up
+# 绘制目标区域放大
 draw_cylinder(ax2, fake_target, 10, 15, 'red', 0.9)
 draw_cylinder(ax2, real_target, 10, 20, 'blue', 0.9)
 
-ax2.text(fake_target[0], fake_target[1], fake_target[2] + 18, 'Decoy Target', 
+ax2.text(fake_target[0], fake_target[1], fake_target[2] + 18, '诱饵目标', 
          color='red', fontsize=14, ha='center', fontweight='bold',
          bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.8))
-ax2.text(real_target[0], real_target[1], real_target[2] + 23, 'Real Target', 
+ax2.text(real_target[0], real_target[1], real_target[2] + 23, '真实目标', 
          color='blue', fontsize=14, ha='center', fontweight='bold',
          bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.8))
 
@@ -132,69 +132,69 @@ ax2.set_xlim([-50, 250])
 ax2.set_ylim([-50, 250])
 ax2.set_zlim([-10, 60])
 
-ax2.set_xlabel('X coordinate (m)', fontsize=12, fontweight='bold')
-ax2.set_ylabel('Y coordinate (m)', fontsize=12, fontweight='bold')
-ax2.set_zlabel('Z coordinate (m)', fontsize=12, fontweight='bold')
-ax2.set_title('Target Area Close-up\n(Height difference between decoy and real targets)', fontsize=14, fontweight='bold')
+ax2.set_xlabel('X 坐标 (m)', fontsize=12, fontweight='bold')
+ax2.set_ylabel('Y 坐标 (m)', fontsize=12, fontweight='bold')
+ax2.set_zlabel('Z 坐标 (m)', fontsize=12, fontweight='bold')
+ax2.set_title('目标区域放大\n（诱饵与真实目标高度差）', fontsize=14, fontweight='bold')
 
 ax2.grid(True, alpha=0.4)
 ax2.view_init(elev=35, azim=-45)
 
 # Add distance annotation
 ax2.plot([0, 0], [0, 200], [15, 20], 'k--', alpha=0.6)
-ax2.text(10, 100, 18, '200m', fontsize=11, fontweight='bold',
-        bbox=dict(boxstyle="round,pad=0.2", facecolor="white", alpha=0.7))
+ax2.text(10, 100, 18, '200米', fontsize=11, fontweight='bold',
+    bbox=dict(boxstyle="round,pad=0.2", facecolor="white", alpha=0.7))
 
 plt.tight_layout()
 
-# Save images
-save_path_png = os.path.join(output_dir, f"battlefield_3d_map_{timestamp}.png")
-save_path_pdf = os.path.join(output_dir, f"battlefield_3d_map_{timestamp}.pdf")
+# 保存图片
+save_path_png = os.path.join(output_dir, f"战场三维地图_{timestamp}.png")
+save_path_pdf = os.path.join(output_dir, f"战场三维地图_{timestamp}.pdf")
 
 plt.savefig(save_path_png, dpi=300, bbox_inches='tight', facecolor='white')
 plt.savefig(save_path_pdf, bbox_inches='tight', facecolor='white')
 
-print(f"Images saved to directory: {output_dir}")
-print(f"PNG file: battlefield_3d_map_{timestamp}.png")
-print(f"PDF file: battlefield_3d_map_{timestamp}.pdf")
+print(f"图片已保存到目录: {output_dir}")
+print(f"PNG 文件: 战场三维地图_{timestamp}.png")
+print(f"PDF 文件: 战场三维地图_{timestamp}.pdf")
 
-# Show (may be non-interactive in headless backends)
+# 显示图像（在无头后端可能为非交互式）
 plt.show()
 
-# Save info
-print(f"\nFiles saved!")
-print(f"You can find generated images in folder '{output_dir}'")
+ # 保存信息
+print(f"\n文件已保存！")
+print(f"生成的图片位于文件夹 '{output_dir}'")
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-# Define constants
+# 定义常量
 g = 9.8
 v_missile = 300
 v_smoke_sink = 3
 effective_radius = 10
 effective_duration = 20
 
-# Target positions
+# 目标位置
 fake_target = np.array([0, 0, 0])
 real_target = np.array([0, 200, 0])
 
-# Missile M1 start position
+# 导弹 M1 起始位置
 M1_start = np.array([20000, 0, 2000])
 
-# Drone FY1 start position
+# 无人机 FY1 起始位置
 FY1_start = np.array([17800, 0, 1800])
 
-# Drone speed
+# 无人机速度
 v_drone = 120
 direction_to_target = fake_target[:2] - FY1_start[:2]
 direction_to_target = direction_to_target / np.linalg.norm(direction_to_target)
 v_drone_vector = np.array([v_drone * direction_to_target[0], 
                           v_drone * direction_to_target[1], 0])
 
-print(f"Drone velocity vector: {v_drone_vector}")
+print(f"无人机速度向量: {v_drone_vector}")
 
-# Time parameters
+# 时间参数
 t_drop = 1.5
 t_blast_delay = 3.6
 t_blast = t_drop + t_blast_delay
@@ -204,16 +204,16 @@ drop_position = FY1_start + v_drone_vector * t_drop
 vertical_drop = 0.5 * g * t_blast_delay**2
 blast_position = np.array([drop_position[0]+v_drone_vector[0]*t_blast_delay, drop_position[1], drop_position[2] - vertical_drop])
 
-print(f"Drop position: {drop_position}")
-print(f"Blast position: {blast_position}")
+print(f"投放位置: {drop_position}")
+print(f"起爆位置: {blast_position}")
 
-# Missile flight direction (towards decoy target)
+# 导弹飞行方向（指向诱饵目标）
 missile_direction = fake_target - M1_start
 missile_direction = missile_direction / np.linalg.norm(missile_direction)
 v_missile_vector = v_missile * missile_direction
 print(missile_direction, v_missile_vector)
-print(f"Missile velocity vector: {v_missile_vector}")
-print(f"Missile start position: {M1_start}")
+print(f"导弹速度向量: {v_missile_vector}")
+print(f"导弹起始位置: {M1_start}")
 
 # Calculate time for missile to reach decoy target
 def time_to_target(position, velocity, target):
@@ -221,7 +221,7 @@ def time_to_target(position, velocity, target):
     return t_x
 
 t_missile_to_target = time_to_target(M1_start, v_missile_vector, fake_target)
-print(f"Missile time to decoy target: {t_missile_to_target:.2f} s")
+print(f"导弹到诱饵目标的时间: {t_missile_to_target:.2f} s")
 
 # Compute missile position at time t
 def missile_position(t):
@@ -234,9 +234,9 @@ def smoke_position(t_smoke):
 # Angle condition: determine if smoke is between missile and real target
 def is_smoke_between(missile_pos, smoke_pos, target_pos):
     """
-    Determine whether the smoke is between the missile and the target.
-    If angle missile->smoke->target is acute, smoke lies between them.
-    If the angle is obtuse, smoke is behind the target (invalid).
+    判断烟幕是否位于导弹和目标之间。
+    如果导弹-烟幕-目标夹角为锐角，则烟幕在两者之间。
+    如果夹角为钝角，则烟幕在目标后方（无效）。
     """
     # Vector: missile to smoke
     missile_to_smoke = smoke_pos - missile_pos
@@ -261,47 +261,47 @@ def distance_point_to_line(point, line_point, line_direction):
 # Determine whether the missile crosses the smoke cloud
 def is_missile_through_smoke(missile_pos, smoke_pos, missile_prev_pos, smoke_prev_pos):
     """
-    Determine whether the missile trajectory segment intersects the smoke sphere.
-    Uses relative motion (missile minus smoke) to simplify the intersection test.
+    判断导弹轨迹线段是否与烟幕球体相交。
+    使用相对运动（导弹减去烟幕）简化相交测试。
     """
-    # Smoke cloud radius
+    # 烟幕云半径
     radius = effective_radius
 
-    # Missile movement vector
+    # 导弹移动向量
     missile_move = missile_pos - missile_prev_pos
     missile_move_length = np.linalg.norm(missile_move)
 
     if missile_move_length == 0:
         return False
 
-    # Smoke movement vector
+    # 烟幕移动向量
     smoke_move = smoke_pos - smoke_prev_pos
 
-    # Use relative motion to simplify calculation
+    # 使用相对运动简化计算
     relative_move = missile_move - smoke_move
     relative_move_length = np.linalg.norm(relative_move)
 
     if relative_move_length == 0:
-        # Relative stationary: check current distance
+        # 相对静止：检查当前距离
         return np.linalg.norm(missile_pos - smoke_pos) <= radius
 
-    # Compute missile motion relative to smoke
+    # 计算导弹相对烟幕的运动方向
     relative_direction = relative_move / relative_move_length
 
-    # Vector from smoke to missile (at previous time)
+    # 上一时刻烟幕到导弹的向量
     smoke_to_missile = missile_prev_pos - smoke_prev_pos
 
-    # Compute projection length
+    # 计算投影长度
     projection = np.dot(smoke_to_missile, relative_direction)
 
-    # Compute perpendicular distance to smoke
+    # 计算到烟幕的垂直距离
     perpendicular_dist = np.linalg.norm(smoke_to_missile - projection * relative_direction)
 
-    # If perpendicular distance <= radius and projection within movement range, intersection possible
+    # 如果垂直距离小于等于半径且投影在运动范围内，则可能相交
     if perpendicular_dist <= radius and 0 <= projection <= relative_move_length:
         return True
 
-    # Check whether start or end points are inside the cloud
+    # 检查起点或终点是否在云团内
     if np.linalg.norm(missile_prev_pos - smoke_prev_pos) <= radius:
         return True
     if np.linalg.norm(missile_pos - smoke_pos) <= radius:
@@ -309,7 +309,7 @@ def is_missile_through_smoke(missile_pos, smoke_pos, missile_prev_pos, smoke_pre
 
     return False
 
-# Calculate effective concealment time
+# 计算有效遮蔽时间
 def calculate_effective_time():
     start_time = 0
     end_time = min(effective_duration, t_missile_to_target - t_blast)
@@ -317,11 +317,11 @@ def calculate_effective_time():
     if end_time <= 0:
         return 0.0
     
-    time_step = 0.01  # Increase time step slightly for performance
+    time_step = 0.01  # 稍微增大步长以提升性能
     total_effective_time = 0.0
     current_time = start_time
     
-    # Store previous positions for crossing checks
+    # 存储前一时刻的位置用于穿越检测
     prev_missile_pos = missile_position(t_blast)
     prev_smoke_pos = smoke_position(0)
     
@@ -333,26 +333,28 @@ def calculate_effective_time():
         pos_missile = missile_position(t_missile)
         pos_smoke = smoke_position(current_time)
         
-        # Compute distance
+
+
+        # 计算距离
         missile_to_target_direction = real_target - pos_missile
         missile_to_target_direction = missile_to_target_direction / np.linalg.norm(missile_to_target_direction)
         distance = distance_point_to_line(pos_smoke, pos_missile, missile_to_target_direction)
-        # Check angle condition: smoke must be between missile and target
+        # 检查夹角条件：烟幕必须在导弹和目标之间
         is_between = is_smoke_between(pos_missile, pos_smoke, real_target)
 
-        # Check whether missile crosses the smoke cloud
+        # 检查导弹是否穿越烟幕云团
         is_through = is_missile_through_smoke(pos_missile, pos_smoke, prev_missile_pos, prev_smoke_pos)
 
-        # Three cases count as effective concealment:
-        # 1. distance <= effective_radius and smoke between missile and target (standard concealment)
-        # 2. missile crosses the smoke cloud (new condition)
-        # 3. missile is directly inside the cloud
+        # 以下三种情况计入有效遮蔽时间：
+        # 1. 到视线距离 <= 有效半径 且 烟幕位于导弹与目标之间（标准遮蔽）
+        # 2. 导弹穿越烟幕云团（穿越情况）
+        # 3. 导弹直接位于烟幕云团内部
         in_smoke = np.linalg.norm(pos_missile - pos_smoke) <= effective_radius
-        
+
         if (distance <= effective_radius and is_between) or is_through or in_smoke:
             total_effective_time += time_step
-        
-        # Update previous positions
+
+        # 更新前一时刻的位置
         prev_missile_pos = pos_missile
         prev_smoke_pos = pos_smoke
         
@@ -360,17 +362,17 @@ def calculate_effective_time():
     
     return total_effective_time
 
-# Compute and output results
+ # 计算并输出结果
 effective_time = calculate_effective_time()
-print(f"\n=== RESULTS ===")
-print(f"Smoke drop time: {t_drop:.1f} s")
-print(f"Smoke blast time: {t_blast:.1f} s")
-print(f"Blast position: ({blast_position[0]:.1f}, {blast_position[1]:.1f}, {blast_position[2]:.1f})")
-print(f"Missile time to decoy target: {t_missile_to_target:.2f} s")
-print(f"Effective concealment duration: {effective_time:.3f} s")
+print(f"\n=== 计算结果 ===")
+print(f"烟幕投放时间: {t_drop:.1f} s")
+print(f"烟幕起爆时间: {t_blast:.1f} s")
+print(f"起爆位置: ({blast_position[0]:.1f}, {blast_position[1]:.1f}, {blast_position[2]:.1f})")
+print(f"导弹到诱饵目标时间: {t_missile_to_target:.2f} s")
+print(f"有效遮蔽持续时间: {effective_time:.3f} s")
 
-# Detailed analysis of key time points
-print(f"\n=== Key timepoint detailed analysis ===")
+ # 关键时间点详细分析
+print(f"\n=== 关键时间点详细分析 ===")
 for t_check in [0,1,2,3]:
     if t_check <= min(effective_duration, t_missile_to_target - t_blast):
         t_missile_check = t_blast + t_check
@@ -394,41 +396,41 @@ for t_check in [0,1,2,3]:
         dot_product = np.dot(missile_to_smoke, missile_to_target)
         angle_deg = np.degrees(np.arccos(dot_product / (np.linalg.norm(missile_to_smoke) * np.linalg.norm(missile_to_target))))
         
-        print(f"{t_check}s after blast:")
-        print(f"  Missile position: {pos_missile}")
-        print(f"  Smoke position: {pos_smoke}")
-        print(f"  Distance to LOS: {distance:.2f} m")
-        print(f"  Direct distance: {direct_distance:.2f} m")
-        print(f"  Smoke between missile and target: {'Yes' if is_between else 'No'}")
-        print(f"  Missile-Smoke-Target angle: {angle_deg:.1f}°")
-        print(f"  Inside cloud: {'Yes' if direct_distance <= effective_radius else 'No'}")
-        print(f"  Effective concealment: {'Yes' if (distance <= effective_radius and is_between) or direct_distance <= effective_radius else 'No'}")
+        print(f"{t_check}s 起爆后:")
+        print(f"  导弹位置: {pos_missile}")
+        print(f"  烟幕位置: {pos_smoke}")
+        print(f"  到视线距离: {distance:.2f} m")
+        print(f"  直接距离: {direct_distance:.2f} m")
+        print(f"  烟幕在导弹和目标之间: {'是' if is_between else '否'}")
+        print(f"  导弹-烟幕-目标角度: {angle_deg:.1f}°")
+        print(f"  是否在云团内: {'是' if direct_distance <= effective_radius else '否'}")
+        print(f"  有效遮蔽: {'是' if (distance <= effective_radius and is_between) or direct_distance <= effective_radius else '否'}")
 
-# Visualization
+ # 可视化
 fig = plt.figure(figsize=(15, 10))
 ax = fig.add_subplot(111, projection='3d')
 
-# Plot trajectories
+ # 绘制轨迹
 missile_times = np.linspace(0, t_missile_to_target, 100)
 missile_traj = np.array([missile_position(t) for t in missile_times])
-ax.plot(missile_traj[:, 0], missile_traj[:, 1], missile_traj[:, 2], 'r-', label='Missile trajectory', linewidth=2)
+ax.plot(missile_traj[:, 0], missile_traj[:, 1], missile_traj[:, 2], 'r-', label='导弹轨迹', linewidth=2)
 
-# Plot smoke descent trajectory
+ # 绘制烟幕下降轨迹
 smoke_times = np.linspace(0, min(effective_duration, t_missile_to_target - t_blast), 50)
 smoke_traj = np.array([smoke_position(t) for t in smoke_times])
-ax.plot(smoke_traj[:, 0], smoke_traj[:, 1], smoke_traj[:, 2], 'b-', label='Smoke descent trajectory', linewidth=2)
+ax.plot(smoke_traj[:, 0], smoke_traj[:, 1], smoke_traj[:, 2], 'b-', label='烟幕下降轨迹', linewidth=2)
 
-# Mark key points
-ax.scatter(*fake_target, color='red', s=200, label='Decoy Target', marker='x')
-ax.scatter(*real_target, color='blue', s=200, label='Real Target', marker='o')
-ax.scatter(*M1_start, color='orange', s=100, label='Missile start')
-ax.scatter(*blast_position, color='green', s=100, label='Blast point')
+ # 标记关键点
+ax.scatter(*fake_target, color='red', s=200, label='诱饵目标', marker='x')
+ax.scatter(*real_target, color='blue', s=200, label='真实目标', marker='o')
+ax.scatter(*M1_start, color='orange', s=100, label='导弹起点')
+ax.scatter(*blast_position, color='green', s=100, label='起爆点')
 
-# Draw smoke cloud at key times
+ # 在关键时刻绘制烟幕云团
 for t in [0, 10, 20]:
     if t < len(smoke_times):
         smoke_pos = smoke_position(t)
-        # Draw sphere to represent smoke cloud
+        # 绘制球体表示烟幕云团
         u = np.linspace(0, 2 * np.pi, 20)
         v = np.linspace(0, np.pi, 20)
         x = smoke_pos[0] + effective_radius * np.outer(np.cos(u), np.sin(v))
@@ -436,12 +438,12 @@ for t in [0, 10, 20]:
         z = smoke_pos[2] + effective_radius * np.outer(np.ones(np.size(u)), np.cos(v))
         ax.plot_surface(x, y, z, color='cyan', alpha=0.2)
 
-# Set view and labels
+ # 设置视角和标签
 ax.view_init(elev=20, azim=45)
-ax.set_xlabel('X (m)')
-ax.set_ylabel('Y (m)')
-ax.set_zlabel('Z (m)')
-ax.set_title('Smoke Screen Interference Analysis for Missile M1 (including crossing detection)')
+ax.set_xlabel('X 轴 (米)')
+ax.set_ylabel('Y 轴 (米)')
+ax.set_zlabel('Z 轴 (米)')
+ax.set_title('导弹 M1 的烟幕干扰分析（含穿越检测）')
 ax.legend()
 ax.grid(True)
 
